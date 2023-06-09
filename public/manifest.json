@@ -1,0 +1,33 @@
+{
+  "name": "Cassiano Rodrigues Portfolio",
+  "short_name": "personal portfolio",
+  "author": "Cassiano Rodrigues",
+  "developer": {
+    "name": "Cassiano Rodrigues",
+    "url": "https://github.com/kszinhu"
+  },
+  "icons": [
+    {
+      "src": "public/icon/48_icon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "public/icon/48_icon",
+      "sizes": "48x48"
+    },
+    {
+      "src": "public/icon/general.ico",
+      "sizes": "72x72 96x96 128x128 256x256"
+    },
+    {
+      "src": "public/icon/hd_hi.svg",
+      "sizes": "any"
+    }
+  ],
+  "theme_color": "#c92a2a",
+  "background_color": "#101113",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}
