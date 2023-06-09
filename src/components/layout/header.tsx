@@ -1,12 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
-
-import { useForceUpdate } from "@mantine/hooks";
-import { NavLink } from "@mantine/core";
-import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
-import { HeaderWrapper } from "./styles";
+import { HeaderWrapper, NavLink } from "./styles";
 import { useStore } from "@modules/store/provider";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const {
