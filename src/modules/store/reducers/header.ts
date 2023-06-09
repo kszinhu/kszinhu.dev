@@ -10,7 +10,7 @@ const HeaderReducer: AppReducer<HeaderState, HeaderAction> = (
     case "SET_ITEMS":
       return {
         ...state,
-        activeItem: action.payload,
+        items: action.payload,
       };
     default:
       return state;
