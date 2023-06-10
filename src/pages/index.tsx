@@ -34,7 +34,7 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = ({
   } = useStore()
   const { t } = useTranslation()
 
-  const { text } = useTypingText({ words: ['Engenheiro de Software'], style: { fontSize: '1.25rem' } })
+  const { text } = useTypingText({ words: ['Engenheiro de Software'], style: { fontSize: '1.25rem', fontFamily: '"DM Mono", monospace' } })
 
   useEffect(() => {
     const itemsWithObservers = items.map((item) => ({

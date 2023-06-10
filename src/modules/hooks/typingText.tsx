@@ -113,7 +113,7 @@ const useTypingText = ({
         },
         ...providedStyle,
       }}>
-        <Text>{currentWord.length ? currentWord.join('') : '0'}</Text>
+        <Text sx={{ fontFamily: 'inherit' }}>{currentWord.length ? currentWord.join('') : '0'}</Text>
       </Text>
     ),
     start: () => setIsStopped(false),
