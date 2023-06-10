@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import Layout from '@components/layout'
 import { Button, Grid, Stack, Text, Title } from '@mantine/core'
 import { useIntersection } from '@mantine/hooks'
+import { useTypingText } from '@modules/hooks'
 import { useStore } from '@modules/store/provider'
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -33,6 +34,8 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = ({
   } = useStore()
   const { t } = useTranslation()
 
+  const { text } = useTypingText({ words: ['Engenheiro de Software'], style: { fontSize: '1.25rem' } })
+
   useEffect(() => {
     const itemsWithObservers = items.map((item) => ({
       ...item,
@@ -47,15 +50,15 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = ({
   return (
     <Container>
       <section id='home'>
-        <Stack justify='flex-start' align='flex-start'>
+        <Stack justify='flex-start' align='flex-start' px='lg'>
           <header style={{ paddingBottom: '0.7rem' }}>
             <Text>Hello world 👋🏽</Text>
             <Title order={1}>Olá sou o Cassiano,</Title>
           </header>
           <section id='home-description'>
             <Stack spacing='sm'>
-              <Title order={3}>Engenheiro de Software.</Title>
-              <Button variant='outline' size='lg'>
+              {text}
+              <Button variant='outline' size='lg' sx={{ width: 'fit-content' }}>
                 {t('common:talkWithMe')}
               </Button>
             </Stack>
