@@ -1,7 +1,6 @@
-import HeaderReducer from "./header";
-
-import type { AppReducer } from "../../../types/context/utils";
 import { StoreState, AppActions } from "../../../types/context/store";
+import type { AppReducer } from "../../../types/context/utils";
+import HeaderReducer from "./header";
 
 const combineReducers =
   (slices: Record<string, AppReducer<any, any>>) =>

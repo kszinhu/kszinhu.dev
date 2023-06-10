@@ -1,21 +1,20 @@
 import { useState } from "react";
-import { NextPage } from "next";
-import NextApp, { AppProps, AppContext, AppInitialProps } from "next/app";
-import Head from "next/head";
-import { getCookie, setCookie } from "cookies-next";
 
-import { appWithTranslation, useTranslation } from "next-i18next";
 import {
   MantineProvider,
   ColorScheme,
   ColorSchemeProvider,
 } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
-
 import themeOverride from "@modules/config/theme";
 import { StoreProvider } from "@modules/store/provider";
+import { getCookie, setCookie } from "cookies-next";
+import { NextPage } from "next";
+import { appWithTranslation, useTranslation } from "next-i18next";
+import NextApp, { AppProps, AppContext, AppInitialProps } from "next/app";
+import Head from "next/head";
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
 };
 

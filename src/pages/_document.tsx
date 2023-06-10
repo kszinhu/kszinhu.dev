@@ -1,3 +1,4 @@
+import { ServerStyles, createStylesServer } from "@mantine/next";
 import Document, {
   DocumentContext,
   Html,
@@ -5,7 +6,6 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { ServerStyles, createStylesServer } from "@mantine/next";
 
 import i18nextConfig from "../../next-i18next.config";
 

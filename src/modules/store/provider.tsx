@@ -1,11 +1,10 @@
 import { createContext, useContext, useMemo, useReducer } from "react";
 
 import type { StoreState } from "../../types/context/store";
-
-import AppReducer from "./reducers";
 import Actions from "./actions";
+import AppReducer from "./reducers";
 
-type StoreProviderProps = React.PropsWithChildren<{}>;
+type StoreProviderProps = React.PropsWithChildren<object>;
 type StoreContext = {
   state: StoreState;
   actions: ReturnType<typeof Actions>;
