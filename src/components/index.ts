@@ -1,2 +1,2 @@
-export { default as CompetencesCard } from "./competencesCard";
+export { default as CompetencesCard } from ".";
 export { default as SocialMedia } from "./socialMedia";
