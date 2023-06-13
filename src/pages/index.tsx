@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
-import CompetencesCard from "@components/competencesCard";
+import { CompetencesCard } from "@components/index";
 import Layout from "@components/layout";
 import SocialMedia from "@components/socialMedia";
 import { Button, Grid, Group, Stack, Text, Title } from "@mantine/core";
