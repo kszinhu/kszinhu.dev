@@ -2,7 +2,7 @@ import { type MantineThemeOverride } from "@mantine/core";
 
 const themeOverride: MantineThemeOverride = {
   colorScheme: "dark",
-  fontFamily: '"DM Sans", sans-serif',
+  fontFamily: '"Inter", sans-serif',
   fontFamilyMonospace: '"DM Mono", monospace',
   primaryColor: "red",
 
@@ -11,9 +11,11 @@ const themeOverride: MantineThemeOverride = {
       h1: {
         fontSize: "3rem",
         lineHeight: "3rem",
+        fontWeight: 700,
       },
       h2: {
         fontSize: "2.5rem",
+        fontWeight: 600,
       },
     },
   },
@@ -23,12 +25,28 @@ const themeOverride: MantineThemeOverride = {
       boxSizing: "border-box",
     },
 
+    html: {
+      scrollBehavior: "smooth", // Enable smooth scrolling
+    },
+
     body: {
       ...theme.fn.fontStyles(),
       backgroundColor:
         theme.colorScheme === "dark" ? theme.colors.dark[9] : theme.white,
       color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
       lineHeight: theme.lineHeight,
+    },
+
+    "::-webkit-scrollbar": { width: "0.5rem" },
+
+    "::-webkit-scrollbar-thumb": {
+      borderRadius: "1rem",
+      background: theme.colors.dark[4],
+    },
+
+    "::-webkit-scrollbar-track": {
+      borderRadius: "1rem",
+      background: theme.colors.dark[8],
     },
 
     "@keyframes blink": {

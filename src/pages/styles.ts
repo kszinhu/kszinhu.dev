@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
-import { Container as MantineContainer } from "@mantine/core";
+import {
+  Container as MantineContainer,
+  Text as MantineText,
+  TextProps,
+} from "@mantine/core";
 
 const Container = styled(MantineContainer)`
   display: flex;
@@ -18,7 +22,11 @@ const Container = styled(MantineContainer)`
       margin-left: 1rem;
       margin-right: 1rem;
     }
-    &[id="home"] {
+    &[id="home"],
+    &[id="skills"] {
+      display: flex;
+      justify-content: space-around;
+
       background-color: ${({ theme: { colors } }) => colors.dark[9]};
       border-radius: ${({ theme: { radius } }) => radius.md};
 
@@ -33,10 +41,15 @@ const Container = styled(MantineContainer)`
       & > h2,
       h1 {
         color: ${({ theme: { primaryColor } }) => primaryColor};
-        font-weight: bolder;
       }
     }
   }
 `;
 
-export { Container };
+type MonoTextProps = React.PropsWithChildren & TextProps;
+
+const MonoText = styled(MantineText)<MonoTextProps>`
+  font-family: ${({ theme: { fontFamilyMonospace } }) => fontFamilyMonospace};
+`;
+
+export { Container, MonoText };

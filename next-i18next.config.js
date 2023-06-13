@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // @ts-check
 
 /**
@@ -6,13 +7,15 @@
 module.exports = {
   // https://www.i18next.com/overview/configuration-options#logging
   debug: process.env.NODE_ENV === "development",
+  compatibilityJSON: "v4",
   i18n: {
-    defaultLocale: "pt_br",
-    locales: ["pt_br", "en_us"],
+    defaultLocale: "pt",
+    locales: ["pt", "en_us"],
   },
   localePath:
     typeof window === "undefined"
-      ? require("path").resolve("./public/locales")
+      ? // eslint-disable-next-line @typescript-eslint/no-var-requires
+        require("path").resolve("./public/locales")
       : "/locales",
 
   reloadOnPrerender: process.env.NODE_ENV === "development",

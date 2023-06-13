@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+import SocialMedia from "@components/socialMedia";
 import { Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useStore } from "@modules/store/provider";
@@ -10,7 +11,7 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 
-import { HeaderWrapper, MediaLink, NavLink, Burger } from "./styles";
+import { HeaderWrapper, NavLink, Burger } from "./styles";
 
 const Header: React.FC = () => {
   const {
@@ -57,6 +58,7 @@ const Header: React.FC = () => {
                   href={item.path}
                   label={t(item.label) ?? item.label}
                   active={item?.observer?.isIntersecting}
+                  scroll={false}
                   component={Link}
                 />
               ))}
@@ -76,6 +78,7 @@ const Header: React.FC = () => {
                   href={item.path}
                   label={t(item.label) ?? item.label}
                   active={item?.observer?.isIntersecting}
+                  scroll={false}
                   component={Link}
                 />
               ))}
@@ -85,18 +88,7 @@ const Header: React.FC = () => {
       </section>
       <section id='social-medias'>
         <Group>
-          {socialMedias.map(({ icon: MediaIcon, key, ...props }) => (
-            <MediaLink
-              key={key}
-              variant='light'
-              target='_blank'
-              rel='noopener noreferrer'
-              component={Link}
-              label={null}
-              icon={<MediaIcon />}
-              {...props}
-            />
-          ))}
+          <SocialMedia items={socialMedias} />
         </Group>
       </section>
     </HeaderWrapper>
