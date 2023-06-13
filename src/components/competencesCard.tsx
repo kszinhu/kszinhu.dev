@@ -10,10 +10,10 @@ interface CompetencesCardProps {
 const CompetencesCard: React.FC<CompetencesCardProps> = ({ title, description, icon: Icon }) => {
 
   return (
-    <Card sx={{ padding: '1.5rem' }}>
+    <Card sx={{ padding: '1.5rem', borderRadius: 8 }}>
       <Stack spacing='lg'>
-      <Group>
-        <Text>{title}</Text>
+      <Group position='apart'>
+        <Text weight='bold'>{title}</Text>
         {typeof Icon === 'string' ? <Image src={Icon} alt={title} width={100} height={100} /> : <Icon />}
       </Group>
       <Text>{description}</Text>

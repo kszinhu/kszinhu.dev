@@ -19,8 +19,8 @@ const Container = styled(MantineContainer)`
     background-color: ${({ theme: { colors } }) => colors.dark[8]};
 
     &:not([id="about-me"]) {
-      margin-left: 1rem;
-      margin-right: 1rem;
+      margin-left: 1rem !important;
+      margin-right: 1rem !important;
     }
     &[id="home"],
     &[id="skills"] {

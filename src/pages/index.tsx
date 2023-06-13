@@ -146,7 +146,6 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = () => {
               style={{
                 borderRadius: "1.25rem",
                 objectFit: "cover",
-                boxShadow: "0 1.5rem #000",
               }}
             />
           </Grid.Col>
@@ -169,23 +168,23 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = () => {
           </Grid.Col>
         </Grid>
       </section>
-      <section id='skills'>
+      <section id='skills' ref={skillsRef}>
         <Stack>
           <header>
             <MonoText size='0.85rem' weight={400}>
               /skills
             </MonoText>
-            <Title order={2} ref={skillsRef}>
+            <Title order={2}>
               {t("competences:sectionTitle")}
             </Title>
           </header>
           <Grid
             align='center'
             justify='center'
-            sx={{ width: "100%", gap: "3.5rem" }}
+            sx={{ width: "100%", gap: "1.5rem" }}
           >
             {competences.map(({ key, name: title, experience, ...rest }) => (
-              <Grid.Col key={key} span={12} sm={6}>
+              <Grid.Col key={key} span={6} sm={3}>
                 <CompetencesCard title={title} description={t('competences:experienceDescription', { count: experience })} {...rest} />
               </Grid.Col>
             ))}
