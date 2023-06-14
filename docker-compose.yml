@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  client:
+    image: kszinhu/portfolio:latest
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - '0.0.0.0:${PORT}:${PORT}'
+    networks:
+      - kszinhu
+    env_file:
+      - stack.env
+
+networks:
+  kszinhu:
+    name: kszinhu
+    external: true
