@@ -1,9 +1,5 @@
 import styled from "@emotion/styled";
-import {
-  Container as MantineContainer,
-  Text as MantineText,
-  TextProps,
-} from "@mantine/core";
+import { Container as MantineContainer } from "@mantine/core";
 
 const Container = styled(MantineContainer)`
   display: flex;
@@ -46,10 +42,4 @@ const Container = styled(MantineContainer)`
   }
 `;
 
-type MonoTextProps = React.PropsWithChildren & TextProps;
-
-const MonoText = styled(MantineText)<MonoTextProps>`
-  font-family: ${({ theme: { fontFamilyMonospace } }) => fontFamilyMonospace};
-`;
-
-export { Container, MonoText };
+export default Container;

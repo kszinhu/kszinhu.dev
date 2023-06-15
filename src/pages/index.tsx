@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
-import { CompetencesCard } from "@components/index";
+import { CompetencesCard, MonoText, RootContainer, SocialMedia } from "@components/index";
 import Layout from "@components/layout";
-import SocialMedia from "@components/socialMedia";
 import { Button, Grid, Group, Stack, Text, Title } from "@mantine/core";
 import { useIntersection } from "@mantine/hooks";
 import { useTypingText } from "@modules/hooks";
@@ -15,7 +14,6 @@ import Image from "next/image";
 
 import type { NavItem } from "../types/components/header";
 import type { NextPageWithLayout } from "./_app";
-import { Container, MonoText } from "./styles";
 
 interface SkillItem {
   key: string;
@@ -108,7 +106,7 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = () => {
   }, [items, setItems, observers]);
 
   return (
-    <Container>
+    <RootContainer>
       <section id='home'>
         <Stack justify='space-between' align='flex-start' px='lg'>
           <header style={{ paddingBottom: "0.7rem" }}>
@@ -191,7 +189,7 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = () => {
           </Grid>
         </Stack>
       </section>
-    </Container>
+    </RootContainer>
   );
 };
 

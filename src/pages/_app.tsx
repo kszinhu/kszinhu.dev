@@ -75,7 +75,7 @@ const App = (props: FullyAppProps) => {
   );
 };
 
-App.getInitialProps = async (appContext: AppContext) => {
+App.getStaticProps = async (appContext: AppContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
   return {
     ...appProps,
