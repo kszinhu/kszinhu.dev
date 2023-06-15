@@ -8,12 +8,5 @@ services:
     restart: unless-stopped
     ports:
       - '0.0.0.0:${PORT}:${PORT}'
-    networks:
-      - kszinhu
     env_file:
       - .env
-
-networks:
-  kszinhu:
-    name: kszinhu
-    external: true
