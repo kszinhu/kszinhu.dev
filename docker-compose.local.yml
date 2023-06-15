@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: portfolio
+    container_name: portfolio-client
     restart: unless-stopped
     ports:
       - '0.0.0.0:${PORT}:${PORT}'

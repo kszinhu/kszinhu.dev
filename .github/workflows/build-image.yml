@@ -1,0 +1,33 @@
+name: Update Docker Image CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - name: Build the Docker image
+        run: docker build --file ./Dockerfile --tag kszinhu/portfolio-client:latest .
+
+      - name: Docker Push
+        run: docker push kszinhu/portfolio-client:latest
+
+  update_service:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Send Webhook to Portainer
+        env:
+          PORTAINER_URL: ${{secrets.PORTAINER_URL}}
+        run: |
+          curl -H "Authorization: Bearer ${{secrets.WEBHOOK_TOKEN}}" https://webhooks.modscleo4.dev.br/webhook/${{secrets.WEBHOOK_ID}}/call
