@@ -77,6 +77,8 @@ const App = (props: FullyAppProps) => {
 
 App.getStaticProps = async (appContext: AppContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
+  console.log("loaded color: ", getCookie("mantine-color-scheme", appContext.ctx));
+  
   return {
     ...appProps,
     colorScheme: getCookie("mantine-color-scheme", appContext.ctx) || "dark",
