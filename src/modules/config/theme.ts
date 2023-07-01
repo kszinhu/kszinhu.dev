@@ -5,6 +5,7 @@ const themeOverride: MantineThemeOverride = {
   fontFamily: '"Inter", sans-serif',
   fontFamilyMonospace: '"DM Mono", monospace',
   primaryColor: "red",
+  datesLocale: "pt-BR",
 
   headings: {
     sizes: {

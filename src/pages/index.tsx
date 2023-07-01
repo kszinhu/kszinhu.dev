@@ -27,6 +27,7 @@ interface ServerSideProps {}
 type RootPageProps = React.PropsWithChildren<InferGetServerSidePropsType<typeof getServerSideProps>>;
 
 const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = () => {
+  const { t } = useTranslation();
   const { ref: aboutMeRef, entry: aboutMeEntry } = useIntersection({
       threshold: 0.5,
     }),
@@ -37,7 +38,6 @@ const RootPage: NextPageWithLayout<RootPageProps, RootPageProps> = () => {
   const {
     actions: { setItems },
   } = useStore();
-  const { t } = useTranslation();
 
   const { text } = useTypingText({
     words: ["Engenheiro de Software"],

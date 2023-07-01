@@ -36,13 +36,12 @@ const App = (props: FullyAppProps) => {
   );
   const getLayout = Component.getLayout ?? ((page) => page);
 
+  console.log("theme override", themeOverride);
+
   const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme =
-      value || (colorScheme === "dark" ? "light" : "dark");
+    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
     setColorScheme(nextColorScheme);
-    setCookie("mantine-color-scheme", nextColorScheme, {
-      maxAge: 60 * 60 * 24 * 30, // 30 days
-    });
+    setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
   };
 
   return (
@@ -75,13 +74,11 @@ const App = (props: FullyAppProps) => {
   );
 };
 
-App.getStaticProps = async (appContext: AppContext) => {
+App.getInitialProps = async (appContext: AppContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
-  console.log("loaded color: ", getCookie("mantine-color-scheme", appContext.ctx));
-  
   return {
     ...appProps,
-    colorScheme: getCookie("mantine-color-scheme", appContext.ctx) || "dark",
+    colorScheme: getCookie('mantine-color-scheme', appContext.ctx) || 'dark',
   };
 };
 
