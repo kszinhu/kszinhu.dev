@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   client:
+    container_name: kszinhu.portfolio-client
     image: kszinhu/portfolio-client:latest
     restart: unless-stopped
     ports:
