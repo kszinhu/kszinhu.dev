@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
-// @ts-check
+import path from "path";
 
 /**
  * @type {import('next-i18next').UserConfig}
  */
-module.exports = {
+const modules = {
   // https://www.i18next.com/overview/configuration-options#logging
   debug: process.env.NODE_ENV === "development",
   compatibilityJSON: "v4",
@@ -14,9 +14,12 @@ module.exports = {
   },
   localePath:
     typeof window === "undefined"
-      ? // eslint-disable-next-line @typescript-eslint/no-var-requires
-        require("path").resolve("./public/locales")
+      ? path.resolve("./public/locales")
       : "/locales",
 
   reloadOnPrerender: process.env.NODE_ENV === "development",
 };
+
+export const i18n = modules.i18n;
+
+export default modules;

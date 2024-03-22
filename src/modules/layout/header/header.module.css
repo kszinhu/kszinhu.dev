@@ -1,0 +1,23 @@
+.header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 0;
+  background-color: rgba(16, 17, 19, 0);
+  backdrop-filter: blur(3.25rem);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    justify-content: space-between;
+    padding: 0 0.25rem;
+  }
+}
+
+.navigation-section {
+  display: flex;
+}
+
+.social-media-section {
+  display: flex;
+}
+

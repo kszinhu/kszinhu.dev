@@ -4,11 +4,14 @@
     "es2021": true
   },
   "extends": [
+    "prettier",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "prettier",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "mantine",
+    "plugin:@next/next/recommended",
+    "plugin:jest/recommended"
   ],
   "parserOptions": {
     "project": "./tsconfig.json",
@@ -18,7 +21,9 @@
     "react",
     "prettier",
     "eslint-plugin-import-helpers",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "testing-library",
+    "jest"
   ],
   "overrides": [
     {
@@ -54,6 +59,10 @@
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-explicit-any": "off"
       }
+    },
+    {
+      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:testing-library/react"]
     }
   ],
   "rules": {

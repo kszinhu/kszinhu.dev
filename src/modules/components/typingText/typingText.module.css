@@ -1,0 +1,38 @@
+.typing-text {
+  width: fit-content;
+
+  & > :global(.mantine-Text-root) {
+    position: relative;
+    color: #fff;
+
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+
+  & > :global(.mantine-Text-root)::after {
+    content: '';
+    width: 8px;
+    height: 100%;
+    background-color: #ff5252;
+    display: block;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    animation: blink 0.5s ease infinite alternate-reverse;
+
+    &.hidden {
+      visibility: visible;
+      right: 0;
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}

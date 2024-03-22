@@ -1,17 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
-import { Sx, Text } from "@mantine/core";
+import { MantineStyleProp, Text } from '@mantine/core';
+import TypingText from '@components/typingText';
 
 interface IUseTypingTextArgs {
   words: string[];
   keySpeed?: number;
   maxPauseAmount?: number;
-  style?: Sx;
+  style?: MantineStyleProp;
 }
 
 enum Direction {
-  FORWARD = "forward",
-  BACKWARD = "backward",
+  FORWARD = 'forward',
+  BACKWARD = 'backward',
 }
 
 const useTypingText = ({
@@ -22,16 +23,16 @@ const useTypingText = ({
 }: IUseTypingTextArgs) => {
   const [isStopped, setIsStopped] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
-  const [currentWord, setCurrentWord] = useState(words[wordIndex].split(""));
+  const [currentWord, setCurrentWord] = useState(words[wordIndex].split(''));
 
   const direction = useRef(Direction.BACKWARD);
-  const typingInterval = useRef<ReturnType <typeof setInterval>>();
+  const typingInterval = useRef<ReturnType<typeof setInterval>>();
   const letterIndex = useRef<number>();
 
   const stop = () => {
     clearInterval(typingInterval.current);
     setIsStopped(true);
-  }
+  };
 
   useEffect(() => {
     let pauseCounter = 0;
@@ -41,31 +42,31 @@ const useTypingText = ({
     const backspace = () => {
       if (letterIndex.current === 0) {
         const isOnLastWord = wordIndex === words.length - 1;
-    
+
         setWordIndex(!isOnLastWord ? wordIndex + 1 : 0);
         direction.current = Direction.FORWARD;
-    
+
         return;
       }
-    
+
       const segment = currentWord.slice(0, currentWord.length - 1);
       setCurrentWord(segment);
       letterIndex.current = currentWord.length - 1;
-    }
+    };
 
     const typeLetter = () => {
       if (letterIndex.current === undefined) return;
-  
+
       if (letterIndex.current >= words[wordIndex].length) {
         direction.current = Direction.BACKWARD;
         pauseCounter = maxPauseAmount;
-  
+
         return;
       }
       const segment = words[wordIndex].split('');
       setCurrentWord(currentWord.concat(segment[letterIndex.current]));
       letterIndex.current = letterIndex.current + 1;
-    }
+    };
 
     typingInterval.current = setInterval(() => {
       if (pauseCounter > 0) {
@@ -82,40 +83,11 @@ const useTypingText = ({
 
     return () => {
       clearInterval(typingInterval.current);
-    }
+    };
   }, [currentWord, wordIndex, keySpeed, words, isStopped, maxPauseAmount]);
 
   return {
-    text: (
-      <Text sx={{
-        display: 'block',
-        width: 'fit-content',
-
-        '& > .mantine-Text-root': {
-          position: 'relative',
-          color: '#fff',
-
-          ...(!currentWord.length && { visibility: 'hidden' }),
-        },
-
-        '& > .mantine-Text-root::after': {
-          content: '""',
-          width: '8px',
-          height: '100%',
-          background: '#ff5252',
-          display: 'block',
-          position: 'absolute',
-          right: '-10px',
-          top: 0,
-          animation: 'blink 0.5s ease infinite alternate-reverse',
-
-          ...(!currentWord.length && { visibility: 'visible', right: 0 }),
-        },
-        ...providedStyle,
-      }}>
-        <Text sx={{ fontFamily: 'inherit' }}>{currentWord.length ? currentWord.join('') : '0'}</Text>
-      </Text>
-    ),
+    text: <TypingText style={providedStyle} currentWord={currentWord} />,
     start: () => setIsStopped(false),
     stop,
   };

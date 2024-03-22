@@ -1,0 +1,53 @@
+[
+  {
+    "key": "blox_2",
+    "role": "Engenheiro de software - Pleno",
+    "employmentType": "full-time",
+    "banner": "https://picsum.photos/1200/600",
+    "description": "Desenvolvimento de aplicações web com ReactJS e NextJS.",
+    "company": {
+      "name": "Blox",
+      "location": "São Paulo, SP",
+      "picture": "https://placehold.co/250x250",
+      "description": "Uma startup que oferece soluções"
+    },
+    "interval": {
+      "start": "2024-03-01T03:00:00.000Z",
+      "end": null
+    }
+  },
+  {
+    "key": "blox_1",
+    "role": "Desenvolvedor Frontend",
+    "employmentType": "internship",
+    "banner": "https://picsum.photos/1200/600",
+    "description": "Desenvolvimento de aplicações web com ReactJS e NextJS.",
+    "company": {
+      "name": "Blox",
+      "location": "São Paulo, SP",
+      "picture": "https://placehold.co/250x250",
+      "description": "Uma startup que oferece soluções"
+    },
+    "interval": {
+      "start": "2022-10-01T03:00:00.000Z",
+      "end": "2023-03-01T03:00:00.000Z"
+    }
+  },
+  {
+    "key": "alboom",
+    "role": "Estágio Desenvolvedor Fullstack",
+    "employmentType": "internship",
+    "banner": "https://picsum.photos/1200/600",
+    "description": "Desenvolvimento de aplicações web com ReactJS e NextJS.",
+    "company": {
+      "name": "Alboom",
+      "location": "Jaú, SP",
+      "picture": "https://picsum.photos/250/250",
+      "description": "A Alboom é uma empresa de tecnologia que oferece soluções para fotógrafos e videomakers."
+    },
+    "interval": {
+      "start": "2021-04-01T03:00:00.000Z",
+      "end": "2022-03-01T03:00:00.000Z"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+.competences-card {
+  padding: 1.5rem;
+  border-radius: 8;
+  user-select: none;
+  & header {
+    padding-bottom: unset !important;
+  }
+  & :hover {
+    & header {
+      color: var(--mantine-primary-color-0);
+      transition: color 0.45s ease-in-out;
+    }
+  }
+}

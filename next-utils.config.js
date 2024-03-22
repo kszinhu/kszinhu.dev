@@ -1,5 +1,4 @@
-const pc = require("picocolors");
-
+/* eslint-disable no-undef */
 const nextUtilsConfig = () => {
   const trueEnv = ["true", "1", "yes"];
   const esmExternals = trueEnv.includes(
@@ -9,17 +8,10 @@ const nextUtilsConfig = () => {
     ? process.env.NEXTJS_TSCONFIG_PATH
     : "./tsconfig.json";
 
-  console.warn(
-    `- ${pc.yellow("warn")} Experimental "esmExternals" is ${
-      esmExternals ? "enabled" : "disabled"
-    }`
-  );
   return {
     esmExternals,
     tsconfigPath,
   };
 };
 
-module.exports = {
-  loadCustomBuildParams: nextUtilsConfig,
-};
+export const loadCustomBuildParams = nextUtilsConfig;
