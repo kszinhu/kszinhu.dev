@@ -27,6 +27,10 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.mjs ./next.config.mjs
 COPY --from=builder /app/next-i18next.config.js ./next-i18next.config.js
 COPY --from=builder /app/next-utils.config.js ./next-utils.config.js
+COPY --from=builder /app/.stylelintrc.json ./.stylelintrc.json
+COPY --from=builder /app/.stylelintignore ./.stylelintignore
+COPY --from=builder /app/.eslintrc.json ./.eslintrc.json
+COPY --from=builder /app/postcss.config.cjs ./postcss.config.cjs
 
 
 CMD ["npm", "start"]
