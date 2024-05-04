@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
 
+import { LinkProps } from 'next/link';
+
 import { NavLink as MantineNavLink, NavLinkProps as MantineNavLinkProps } from '@mantine/core';
 import { useLenis } from '@studio-freight/react-lenis';
-import { LinkProps } from 'next/link';
 
 import classes from './navlink.module.css';
 
