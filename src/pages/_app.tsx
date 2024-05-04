@@ -1,14 +1,16 @@
 import '@mantine/core/styles.css';
 import '../../public/global.css';
 
+import { NextPage } from 'next';
+import NextApp, { AppProps, AppContext, AppInitialProps } from 'next/app';
+import Head from 'next/head';
+
 import { localStorageColorSchemeManager, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { theme as AppTheme } from '@modules/config/theme';
 import { StoreProvider } from '@modules/store/provider';
-import { NextPage } from 'next';
-import { appWithTranslation, useTranslation } from 'next-i18next';
-import NextApp, { AppProps, AppContext, AppInitialProps } from 'next/app';
-import Head from 'next/head';
+
+import { appWithTranslation, useTranslation } from '@lib/getServerSideTranslactions';
 
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
@@ -53,6 +55,7 @@ const App = (props: FullyAppProps) => {
 
 App.getInitialProps = async (appContext: AppContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
+
   return {
     ...appProps,
   };

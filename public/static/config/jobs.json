@@ -1,32 +1,15 @@
 [
   {
-    "key": "blox_2",
-    "role": "Engenheiro de software - Pleno",
-    "employmentType": "full-time",
-    "banner": "https://picsum.photos/1200/600",
-    "description": "Desenvolvimento de aplicações web com ReactJS e NextJS.",
-    "company": {
-      "name": "Blox",
-      "location": "São Paulo, SP",
-      "picture": "https://placehold.co/250x250",
-      "description": "Uma startup que oferece soluções"
-    },
-    "interval": {
-      "start": "2024-03-01T03:00:00.000Z",
-      "end": null
-    }
-  },
-  {
     "key": "blox_1",
     "role": "Desenvolvedor Frontend",
     "employmentType": "internship",
-    "banner": "https://picsum.photos/1200/600",
-    "description": "Desenvolvimento de aplicações web com ReactJS e NextJS.",
+    "banner": "https://blox.education/wp-content/uploads/2021/05/Grupo-3424.png",
+    "description": "Sou responsável pelo desenvolvimento e à manutenção de aplicações, atuando tanto no front-end quanto no back-end. Minhas habilidades abrangem tecnologias como React, HTML, CSS, JavaScript, Ruby on Rails, utilizando Banco de dados relacionais e NoSQL, para construção de APIs RESTful.\n\nAlém de, implementar a infraestrutura do produto, incluindo a configuração de cluster, ambiente de desenvolvimento e pipelines de CI/CD; colaboração na elaboração de plannings, definindo objetivos, sprints e tarefas.",
     "company": {
       "name": "Blox",
       "location": "São Paulo, SP",
-      "picture": "https://placehold.co/250x250",
-      "description": "Uma startup que oferece soluções"
+      "picture": "/static/images/blox_educational.jpeg",
+      "description": "Inteligência em plataforma educacionais e análise de documentos"
     },
     "interval": {
       "start": "2022-10-01T03:00:00.000Z",
@@ -34,15 +17,32 @@
     }
   },
   {
+    "key": "blox_2",
+    "role": "Engenheiro de software - Pleno",
+    "employmentType": "full-time",
+    "banner": "https://blox.education/wp-content/uploads/2021/05/Grupo-3424.png",
+    "description": "Sou responsável pelo desenvolvimento e à manutenção de aplicações, atuando tanto no front-end quanto no back-end. Minhas habilidades abrangem tecnologias como React, HTML, CSS, JavaScript, Ruby on Rails, utilizando Banco de dados relacionais e NoSQL, para construção de APIs RESTful.\n\nAlém de, implementar a infraestrutura do produto, incluindo a configuração de cluster, ambiente de desenvolvimento e pipelines de CI/CD; colaboração na elaboração de plannings, definindo objetivos, sprints e tarefas.",
+    "company": {
+      "name": "Blox",
+      "location": "São Paulo, SP",
+      "picture": "/static/images/blox_educational.jpeg",
+      "description": "Inteligência em plataforma educacionais e análise de documentos"
+    },
+    "interval": {
+      "start": "2024-03-01T03:00:00.000Z",
+      "end": null
+    }
+  },
+  {
     "key": "alboom",
-    "role": "Estágio Desenvolvedor Fullstack",
+    "role": "Desenvolvedor Fullstack",
     "employmentType": "internship",
-    "banner": "https://picsum.photos/1200/600",
-    "description": "Desenvolvimento de aplicações web com ReactJS e NextJS.",
+    "banner": "https://www.alboompro.com/_wp/wp-content/uploads/2022/08/br-site.jpg",
+    "description": "Durante a experiência na Alboom tive contato com uma grande diversidade de tarefas entre o front-end ao back-end, trabalhando na construção e manutenção de projetos.\n\nEntre as tarefas destinadas ao front-end destaco a criação de uma biblioteca de componentes, interface de checkout e manutenção das interfaces já existentes. Utilizando React e Angular.\n\nEntre as tarefas destinadas ao back-end destaco a criação de uma API de cobrança em Ruby (Stripe e outros) com base em assinaturas e a manutenção de API já existentes. Utilizando Ruby on Rails e Node.\n\nSempre criando testes unitários e de integração usando JEST ou RSPEC.",
     "company": {
       "name": "Alboom",
       "location": "Jaú, SP",
-      "picture": "https://picsum.photos/250/250",
+      "picture": "https://storage.alboompro.com/brand/logo2022/alboom-favicon.png",
       "description": "A Alboom é uma empresa de tecnologia que oferece soluções para fotógrafos e videomakers."
     },
     "interval": {

@@ -1,25 +1,19 @@
-/* eslint-disable no-undef */
-import path from "path";
+const path = require('path');
 
 /**
  * @type {import('next-i18next').UserConfig}
  */
-const modules = {
+module.exports = {
   // https://www.i18next.com/overview/configuration-options#logging
-  debug: process.env.NODE_ENV === "development",
-  compatibilityJSON: "v4",
+  debug: process.env.NODE_ENV === 'development',
+  compatibilityJSON: 'v4',
   i18n: {
-    defaultLocale: "pt",
-    locales: ["pt", "en_us"],
+    defaultLocale: 'pt',
+    locales: ['pt', 'en'],
   },
-  localePath:
-    typeof window === "undefined"
-      ? path.resolve("./public/locales")
-      : "/locales",
 
-  reloadOnPrerender: process.env.NODE_ENV === "development",
+  fallbackLng: false,
+  localePath: typeof window === 'undefined' ? path.resolve('./public/locales') : './locales',
+
+  reloadOnPrerender: process.env.NODE_ENV === 'development',
 };
-
-export const i18n = modules.i18n;
-
-export default modules;

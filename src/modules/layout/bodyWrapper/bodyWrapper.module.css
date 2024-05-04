@@ -12,9 +12,13 @@
   & > section {
     background-color: var(--mantine-color-dark-8);
 
-    &:not([id="about-me"]):not([id="experience"]) {
+    &[id="skills"] {
       margin-left: 1rem !important;
       margin-right: 1rem !important;
+    }
+
+    &[id="home"] {
+      padding-block: unset;
     }
 
     &[id="home"],

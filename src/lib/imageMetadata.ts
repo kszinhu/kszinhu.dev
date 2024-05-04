@@ -1,4 +1,4 @@
-import { getPlaiceholder } from "plaiceholder";
+import { getPlaiceholder } from 'plaiceholder';
 
 export const getBase64 = async (imageUrl: string) => {
   try {
@@ -14,6 +14,6 @@ export const getBase64 = async (imageUrl: string) => {
 
     return base64;
   } catch (e) {
-    if (e instanceof Error) console.log(e.stack);
+    throw new Error(`Failed to fetch image: ${e}`);
   }
 };

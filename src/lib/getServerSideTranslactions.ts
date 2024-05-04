@@ -1,22 +1,22 @@
-import type { Namespace } from "i18next";
-import type { SSRConfig, UserConfig } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import type { SSRConfig, UserConfig } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import nextI18nextConfig from "../../next-i18next.config";
+import nextI18nextConfig from '../../next-i18next.config';
 
-type ArrayElementOrSelf<T> = T extends Array<infer U> ? U[] : T[];
-
-export const getServerTranslations = async (
-  locale: string,
-  namespacesRequired?: ArrayElementOrSelf<Namespace> | undefined,
+export const getServerSideTranslations = async (
+  locale?: string,
+  namespaces?: string[],
   configOverride?: UserConfig,
   extraLocales?: string[] | false
 ): Promise<SSRConfig> => {
   const config = configOverride ?? nextI18nextConfig;
+
   return serverSideTranslations(
-    locale,
-    namespacesRequired,
+    locale ?? config.i18n.defaultLocale,
+    namespaces,
     config,
     extraLocales
   );
 };
+
+export * from 'next-i18next';

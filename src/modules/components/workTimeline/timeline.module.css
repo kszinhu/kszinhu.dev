@@ -1,0 +1,4 @@
+.timelineImage {
+  aspect-ratio: 16/9 auto; 
+  object-fit: cover;
+}

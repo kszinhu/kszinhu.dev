@@ -1,0 +1,44 @@
+[
+  {
+    "key": "ReactJS",
+    "name": "React",
+    "icon": "IconBrandReact",
+    "experience": 3
+  },
+  {
+    "key": "NextJS",
+    "name": "Next.js",
+    "icon": "IconBrandNextjs",
+    "experience": 2
+  },
+  {
+    "key": "Typescript",
+    "name": "Typescript",
+    "icon": "IconBrandTypescript",
+    "experience": 3
+  },
+  {
+    "key": "Javascript",
+    "name": "Javascript",
+    "icon": "IconBrandJavascript",
+    "experience": 4
+  },
+  {
+    "key": "Rust",
+    "name": "Rust",
+    "icon": "IconBrandRust",
+    "experience": 1
+  },
+  {
+    "key": "C++",
+    "name": "C++",
+    "icon": "IconBrandCpp",
+    "experience": 1
+  },
+  {
+    "key": "Python",
+    "name": "Python",
+    "icon": "IconBrandPython",
+    "experience": 3
+  }
+]

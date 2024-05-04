@@ -1,1 +1,1 @@
-export { default as useTypingText } from "./typingText";
+export { default as useTypingText } from './typingText';

@@ -1,0 +1,203 @@
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+.gradient-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1e1e1e 0%, #1e1e1e 100%);
+
+  svg {
+    display: none;
+  }
+
+
+  .gradients-container {
+    filter: url(#goo) blur(40px) ;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bubble-1 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(18, 113, 255, 0.8) 0, rgba(18, 113, 255, 0) 50%) no-repeat;
+    mix-blend-mode: soft-light;
+
+    width: 80%;
+    height: calc(80% * 2);
+    top: calc(50% - 80% / 2);
+    left: calc(50% - 80% / 2);
+
+
+    transform-origin: center center;
+    animation: moveVertical 30s ease infinite;
+
+    opacity: 1;
+  }
+
+  .bubble-2 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(221, 74, 255, 0.8) 0, rgba(221, 74, 255, 0) 50%) no-repeat;
+    mix-blend-mode: soft-light;
+
+    width: 80%;
+    height: calc(80% * 2);
+    top: calc(50% - 80% / 2);
+    left: calc(50% - 80% / 2);
+
+
+    transform-origin: calc(80% - 400px);
+    animation: moveInCircle 20s reverse infinite;
+
+    opacity: 1;
+  }
+
+  .bubble-3 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(100, 220, 255, 0.8) 0, rgba(100, 220, 255, 0) 50%) no-repeat;
+    mix-blend-mode: soft-light;
+
+    width: 80%;
+    height: calc(80% * 2);
+    top: calc(50% - 80% / 2 + 200px);
+    left: calc(50% - 80% / 2 - 500px);
+
+
+    transform-origin: calc(80% + 400px);
+    animation: moveInCircle 40s linear infinite;
+
+    opacity: 1;
+  }
+
+  .bubble-4 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(200, 50, 50, 0.8) 0, rgba(200, 50, 50, 0) 50%) no-repeat;
+    mix-blend-mode: soft-light;
+
+    width: 80%;
+    height: calc(80% * 2);
+    top: calc(50% - 80% / 2);
+    left: calc(50% - 80% / 2);
+
+    transform-origin: calc(80% - 200px);
+    animation: moveHorizontal 40s ease infinite;
+
+    opacity: 0.7;
+  }
+
+  .bubble-5 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(180, 180, 50, 0.8) 0, rgba(180, 180, 50, 0) 50%) no-repeat;
+    mix-blend-mode: soft-light;
+
+    width: 80%;
+    height: calc(80% * 2);
+    top: calc(50% - 80%);
+    left: calc(50% - 80%);
+
+    transform-origin: calc(80% - 200px) calc(80% + 800px);
+    animation: moveInCircle 20s ease infinite;
+
+    opacity: 1;
+  }
+
+  .bubble-interactive {
+    position: absolute;
+    mix-blend-mode: soft-light;
+    background: radial-gradient(circle at center, rgba(140, 100, 255, 0.8) 0, rgba(140, 100, 255, 0) 50%) no-repeat;
+
+    width: 100%;
+    height: calc(100% * 2);
+    top: -50%;
+    left: -50%;
+
+    transform-origin: center center;
+    opacity: 0.7;
+  }
+
+  /* Quando for um dispositivo em retrato (height > width) inverter width com height */
+  @media (orientation: portrait) {
+    .bubble-1 {
+      height: 80%;
+      top: calc(50% - 80% / 2);
+      left: calc(50% - 80% / 2);
+    }
+
+    .bubble-2 {
+      height: 80%;
+      top: calc(50% - 80% / 2);
+      left: calc(50% - 80% / 2);
+    }
+
+    .bubble-3 {
+      height: 80%;
+      top: calc(50% - 80% / 2);
+      left: calc(50% - 80% / 2);
+    }
+
+    .bubble-4 {
+      height: 80%;
+      top: calc(50% - 80% / 2);
+      left: calc(50% - 80% / 2);
+    }
+
+    .bubble-5 {
+      height: 80%;
+      top: calc(50% - 80% / 2);
+      left: calc(50% - 80% / 2);
+    }
+  }
+}
+
+.container-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  height: 65vh;
+  width: 100%;
+
+  max-width: unset;
+  padding: unset;
+}

@@ -2,5 +2,5 @@ export type NavItem = {
   key: string;
   label: string;
   path: string;
-  observer?: IntersectionObserverEntry;
+  observer?: IntersectionObserverEntry | null;
 };

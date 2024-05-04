@@ -1,0 +1,7 @@
+{
+  "sectionTitle": "Experience",
+  "year": "{{count}} year",
+  "year_other": "{{count}} years",
+  "month": "{{count}} month",
+  "month_other": "{{count}} months"
+}

@@ -1,23 +1,24 @@
-import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
+
 import { ActionIcon, Group, AppShellHeader as MantineHeader } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 import { useStore } from '@modules/store/provider';
 import {
   IconBrandInstagram as InstagramIcon,
   IconBrandLinkedin as LinkedinIcon,
   IconBrandGithub as GithubIcon,
 } from '@tabler/icons-react';
-import Link from 'next/link';
-import NavigationLink from '../navigationLink/navlink';
-import Burger from '../burger/burger';
 
+import { useTranslation } from '@lib/getServerSideTranslactions';
+
+import NavigationLink from '../../components/navigationLink';
+import Burger from '../burger/burger';
 import classes from './header.module.css';
 
 export default function Header() {
   const {
-    state: { header: { items } = {} },
+    state: { header: { items, opened } = {} },
+    actions: { toggleOpened: toggle },
   } = useStore();
-  const [opened, { toggle }] = useDisclosure(false);
   const { t } = useTranslation('header');
 
   const socialMedias: { key: string; href: string; icon: React.ElementType }[] = [
@@ -63,19 +64,7 @@ export default function Header() {
               onClick={toggle}
               title="Open navigation"
               aria-label="Open navigation"
-            >
-              {items.map((item) => (
-                <NavigationLink
-                  variant="light"
-                  key={item.key}
-                  href={item.path}
-                  label={t(item.label) ?? item.label}
-                  active={item?.observer?.isIntersecting}
-                  scroll={false}
-                  component={Link}
-                />
-              ))}
-            </Burger>
+            />
           </>
         )}
       </section>

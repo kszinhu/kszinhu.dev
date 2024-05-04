@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
-import { MantineStyleProp, Text } from '@mantine/core';
+import { MantineStyleProp } from '@mantine/core';
+
 import TypingText from '@components/typingText';
 
 interface IUseTypingTextArgs {
@@ -65,12 +66,12 @@ const useTypingText = ({
       }
       const segment = words[wordIndex].split('');
       setCurrentWord(currentWord.concat(segment[letterIndex.current]));
-      letterIndex.current = letterIndex.current + 1;
+      letterIndex.current += 1;
     };
 
     typingInterval.current = setInterval(() => {
       if (pauseCounter > 0) {
-        pauseCounter = pauseCounter - 1;
+        pauseCounter -= 1;
         return;
       }
 
@@ -81,6 +82,7 @@ const useTypingText = ({
       }
     }, keySpeed);
 
+    // eslint-disable-next-line consistent-return
     return () => {
       clearInterval(typingInterval.current);
     };

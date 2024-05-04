@@ -4,14 +4,12 @@
     "es2021": true
   },
   "extends": [
-    "prettier",
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
     "mantine",
     "plugin:@next/next/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "parserOptions": {
     "project": "./tsconfig.json",
@@ -19,7 +17,6 @@
   },
   "plugins": [
     "react",
-    "prettier",
     "eslint-plugin-import-helpers",
     "@typescript-eslint",
     "testing-library",
@@ -37,24 +34,6 @@
             "caughtErrorsIgnorePattern": "^_"
           }
         ],
-        "import-helpers/order-imports": [
-          "warn",
-          {
-            "newlinesBetween": "always",
-            "groups": [
-              "/^react/",
-              "module",
-              "/^hooks/",
-              "/^components/",
-              "/^common/",
-              "/^util/",
-              "/^routes/",
-              "/^store/",
-              ["parent", "sibling", "index"]
-            ],
-            "alphabetize": { "order": "asc", "ignoreCase": true }
-          }
-        ],
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-explicit-any": "off"
@@ -66,6 +45,7 @@
     }
   ],
   "rules": {
+    "max-len": ["error", { "code": 120 }],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "no-unused-vars": [
@@ -74,6 +54,27 @@
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^_",
         "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^react/",
+          "/^next/",
+          "module",
+          "/^@hooks/",
+          "/^@store/",
+          "/^@components/",
+          "/^@common/",
+          "/^@util/",
+          "/^@lib/",
+          ["parent", "sibling", "index"],
+          "/^@routes/",
+          "/styles/"
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]
   }

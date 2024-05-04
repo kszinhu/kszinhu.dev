@@ -16,3 +16,8 @@ export interface Job {
   interval: DateInterval;
   description: string;
 }
+
+export interface JobWithBlurredData extends Job {
+  blurredSrc: string;
+  alt: string;
+}

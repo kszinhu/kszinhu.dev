@@ -1,0 +1,49 @@
+/* Para não usar `classes definition` e passar `data-attributes` para os subcomponents foi setado hard-coded com base na estrutura do Mantine NavLink 7  */
+
+.navlink {
+  width: fit-content;
+  display: block;
+  opacity: 0.65;
+  font-weight: 700;
+
+  &[data-active="true"],
+  &:not([data-active="true"]):hover {
+    opacity: 1;
+    background-color: transparent;
+    color: unset;
+
+    transition: opacity 0.3s;
+    
+    & > * {
+      overflow: visible;
+    }
+    
+    div > span:nth-of-type(1)::after {
+      width: 100%;
+    }
+  }
+
+  &:not([data-active="true"]) div > span:nth-of-type(1)::after {
+    width: 0%;
+    opacity: 0 !important;
+
+    transition: width 0.4s, opacity 0.41s;
+  }
+
+  div > span:nth-of-type(1)::after {
+      content: "";
+      opacity: 1;
+      width: 0%;
+      height: 2px;
+      background-color: var(--mantine-color-gray-4);
+  
+      display: block;
+  
+      position: relative;
+      bottom: -1rem;
+      border-radius: 0.25rem;
+  
+      padding-inline: 0.5rem;
+      transition: width 0.4s;
+    }
+}

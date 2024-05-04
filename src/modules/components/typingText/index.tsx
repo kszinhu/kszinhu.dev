@@ -7,14 +7,12 @@ interface ITypingTextProps {
   style?: MantineStyleProp;
 }
 
-const TypingText = ({ currentWord, style: providedStyle }: ITypingTextProps) => {
-  return (
-    <Text component="span" className={classes['typing-text']} style={providedStyle}>
-      <Text component="p" style={{ fontFamily: 'inherit' }}>
-        {currentWord.length ? currentWord.join('') : '0'}
-      </Text>
+const TypingText = ({ currentWord, style: providedStyle }: ITypingTextProps) => (
+  <Text component="span" className={classes['typing-text']} style={providedStyle}>
+    <Text component="p" style={{ fontFamily: 'inherit' }}>
+      {currentWord.length ? currentWord.join('') : '0'}
     </Text>
-  );
-};
+  </Text>
+);
 
 export default TypingText;

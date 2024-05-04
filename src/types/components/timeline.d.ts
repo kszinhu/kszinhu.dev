@@ -2,24 +2,36 @@ import { ImageProps } from 'next/image';
 
 import { DateInterval } from '../common';
 
-export interface TimelineItem {
-  key: string;
+export interface TimelineJob {
   title: string;
-  imageUrl?: string;
-  blurredSrc?: string;
-  subtitle: string;
-  body: string;
-  dashed?: boolean;
-  media?: Url;
   date: DateInterval;
+  description: string;
+  employmentType: string;
+}
+
+export type WorkTimelineItem = {
+  key: string;
+  name: string;
+  avatar: string;
+  location: string;
+  jobs: TimelineJob[];
+} & (
+  | {
+      banner: string;
+      bannerBlurredSrc: string;
+    }
+  | {
+      banner?: never;
+      bannerBlurredSrc?: never;
+    }
+);
+
+export interface WorkTimelineProps {
+  items: WorkTimelineItem[];
 }
 
 export interface TimelineImageProps extends ImageProps {
   src: string;
   blurredSrc?: string;
   alt: string;
-}
-
-export interface TimelineProps {
-  items: TimelineItem[];
 }

@@ -1,4 +1,6 @@
-import type { HeaderState } from "./store";
-import type { Action } from "./utils";
+import type { HeaderState } from './store';
+import type { Action } from './utils';
 
-export type HeaderAction = Action<"SET_ITEMS", HeaderState["items"]>;
+export type HeaderActions =
+  | Action<'SET_ITEMS', HeaderState['items']>
+  | Action<'TOGGLE_OPENED', boolean>;

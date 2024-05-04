@@ -22,6 +22,7 @@
     "paths": {
       "@components/*": ["./src/modules/components/*"],
       "@modules/*": ["./src/modules/*"],
+      "@utils/*": ["./src/utils/*"],
       "@lib/*": ["./src/lib/*"]
     }
   },
@@ -31,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.js",
+    "next.config.mjs",
     "next-i18next.config.js",
     "next-utils.config.js",
     "postcss.config.cjs"
