@@ -1,0 +1,4 @@
+json.header do
+  json.title "Welcome to My Site"
+  json.subtitle "Your go-to platform for everything"
+end
