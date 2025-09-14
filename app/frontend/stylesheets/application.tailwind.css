@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "@mantine/core/styles.css";
+
+@source "../../../app/views/**/*.tsx";
+@source "../../../app/views/**/*.html.erb";
