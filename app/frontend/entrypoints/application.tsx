@@ -1,27 +1,30 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { Application, VisitResponse } from "@thoughtbot/superglue";
-import { MantineProvider } from "@mantine/core";
+import { createTheme, MantineProvider } from "@mantine/core"
+import { Application, type VisitResponse } from "@thoughtbot/superglue"
+import { createRoot } from "react-dom/client"
 
-import { buildVisitAndRemote } from "../application_visit";
-import { pageIdentifierToPageComponent } from "../page_to_page_mapping";
-import { store } from "../store";
+import { buildVisitAndRemote } from "../application_visit"
+import { pageIdentifierToPageComponent } from "../page_to_page_mapping"
+import { store } from "../store"
 
 declare global {
   interface Window {
-    SUPERGLUE_INITIAL_PAGE_STATE: VisitResponse;
+    SUPERGLUE_INITIAL_PAGE_STATE: VisitResponse
   }
 }
 
+const theme = createTheme({
+  primaryColor: "red",
+})
+
 if (typeof window !== "undefined") {
-  document.addEventListener("DOMContentLoaded", function () {
-    const appEl = document.getElementById("app");
-    const location = window.location;
+  document.addEventListener("DOMContentLoaded", () => {
+    const appEl = document.getElementById("app")
+    const location = window.location
 
     if (appEl) {
-      const root = createRoot(appEl);
+      const root = createRoot(appEl)
       root.render(
-        <MantineProvider>
+        <MantineProvider theme={theme} defaultColorScheme="auto">
           <Application
             // The base url prefixed to all calls made by the `visit`
             // and `remote` thunks.
@@ -39,7 +42,7 @@ if (typeof window !== "undefined") {
             mapping={pageIdentifierToPageComponent}
           />
         </MantineProvider>,
-      );
+      )
     }
-  });
+  })
 }

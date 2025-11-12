@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "🔍 Running Biome linter and formatter..."
+echo ""
+
+case "${1:-check}" in
+  --check|-c)
+    echo "📋 Check mode: showing issues without fixing"
+    yarn biome check .
+    ;;
+  --fix|-f)
+    echo "🔧 Fixing all issues (safe + unsafe)"
+    yarn biome check --write --unsafe .
+    ;;
+  --format)
+    echo "✨ Formatting code only"
+    yarn biome format --write .
+    ;;
+  --help|-h)
+    echo "Usage: script/lint-js [option]"
+    echo ""
+    echo "Options:"
+    echo "  -c, --check     Check without fixing (default)"
+    echo "  -f, --fix       Fix all issues"
+    echo "  --format        Format code only"
+    echo "  -h, --help      Show this help message"
+    echo ""
+    echo "Examples:"
+    echo "  script/lint-js              # Check for issues"
+    echo "  script/lint-js --fix        # Auto-fix issues"
+    echo "  script/lint-js --format     # Format only"
+    exit 0
+    ;;
+  *)
+    echo "📋 Checking for issues..."
+    yarn biome check .
+    ;;
+esac
+
+echo ""
+echo "✅ Biome check complete!"

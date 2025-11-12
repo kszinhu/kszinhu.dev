@@ -1,0 +1,11 @@
+en:
+  date:
+    duration:
+      separator: " and "
+      years:
+        one: "1 year"
+        other: "%{count} years"
+      months:
+        one: "1 month"
+        other: "%{count} months"
+      less_than_month: "less than 1 month"

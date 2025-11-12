@@ -1,0 +1,6 @@
+pt:
+  views:
+    navigation:
+      home: "Início"
+      projects: "Projetos"
+      blog: "Blog"

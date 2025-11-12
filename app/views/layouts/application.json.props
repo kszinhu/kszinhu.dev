@@ -9,6 +9,13 @@ json.defers json.deferred!
 json.fragments json.fragments!
 json.assets [ asset_path('application.js') ]
 
+json.layout do
+  json.type controller_name == "admin" ? "dashboard" : "public"
+  json.showHeader true
+  json.showSidebar controller_name == "admin"
+  json.containerSize "lg"
+end
+
 if protect_against_forgery?
   json.csrfToken form_authenticity_token
 end

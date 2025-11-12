@@ -1,21 +1,40 @@
 {
   "private": true,
   "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "check": "biome check --write ."
+  },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.5",
     "@tailwindcss/vite": "^4.1.11",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@thoughtbot/candy_wrapper": "^0.0.4",
     "@types/node": "^24.2.1",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.1.0",
+    "@vitest/coverage-v8": "4.0.7",
+    "jsdom": "^27.1.0",
     "tailwindcss": "^4.1.11",
     "vite": "^5.4.19",
-    "vite-plugin-ruby": "^5.1.1"
+    "vite-plugin-ruby": "^5.1.1",
+    "vitest": "^4.0.7"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
     "@mantine/core": "^8.2.8",
     "@mantine/dates": "^8.2.8",
     "@mantine/hooks": "^8.2.8",
     "@reduxjs/toolkit": "^2.8.2",
+    "@tabler/icons-react": "^3.35.0",
     "@thoughtbot/superglue": "^1.0.2",
     "dayjs": "^1.11.18",
     "react": "^19.1.1",

@@ -1,8 +1,94 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+# Airbnb Ruby Style Guide
+inherit_gem:
+  rubocop-airbnb: config/rubocop-airbnb.yml
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+plugins:
+  - rubocop-airbnb
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3.4
+  Exclude:
+    - "db/schema.rb"
+    - "db/migrate/**/*"
+    - "bin/**/*"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "tmp/**/*"
+    - "log/**/*"
+    - "storage/**/*"
+    - "config/environments/**/*"
+    - "config/puma.rb"
+    - "config.ru"
+
+# Rails-specific configurations
+Rails:
+  Enabled: true
+
+# Permitir blocos longos em arquivos de configuração e testes
+Metrics/BlockLength:
+  Exclude:
+    - "config/routes.rb"
+    - "config/initializers/**/*"
+    - "spec/**/*"
+    - "test/**/*"
+    - "db/seeds.rb"
+    - "lib/tasks/**/*"
+
+# Ajustar tamanho de linha para projetos Rails modernos
+Layout/LineLength:
+  Max: 120
+  AllowedPatterns: ['\A#']
+  Exclude:
+    - "db/migrate/**/*"
+    - "config/**/*"
+
+# Permitir métodos um pouco mais longos em controllers e models
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - "db/seeds.rb"
+    - "test/**/*"
+    - "spec/**/*"
+
+# Metrics comuns que precisam de ajustes em Rails
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+    - "db/seeds.rb"
+    - "test/**/*"
+    - "spec/**/*"
+
+# Documentação nem sempre é necessária em todos os lugares
+Style/Documentation:
+  Enabled: false
+
+# Frozen string literal é uma boa prática
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+  Exclude:
+    - "db/migrate/**/*"
+    - "db/schema.rb"
+
+# Preferência por aspas duplas (padrão Airbnb)
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Trailing commas facilitam diffs
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+# Rails tem suas próprias convenções para alguns casos
+Rails/SkipsModelValidations:
+  Enabled: true
+  AllowedMethods:
+    - touch
+
+# Permitir rescue sem especificar a exceção em alguns contextos Rails
+Style/RescueStandardError:
+  EnforcedStyle: implicit

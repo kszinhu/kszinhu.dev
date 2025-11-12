@@ -1,0 +1,32 @@
+pt:
+  views:
+    root:
+      name: "Cassiano Rodrigues"
+      titles:
+        - "Software Engineer"
+        - "Full-Stack Developer"
+        - "Santista"
+      short_bio: Formado em Ciência da Computação & Amante de café ❤️
+      description:
+        "Yoo! Sou o KS, um desenvolvedor de software residente em São Paulo, Brasil. \
+        Gosto de programar, escrever sobre tech e minhas experiências de vida, \
+        e aprender novas habilidades. Bem-vindo ao meu cantinho na internet!"
+      resume_label: "Currículo"
+      resume_url: "https://api.kszinhu.dev/files/resume?lang=pt"
+      bio:
+        - year: "2002"
+          event: "Nasci em Igaraçu do Tietê, Brasil"
+        - year: "2020"
+          event: "Iniciei Ciência da Computação at UNESP - Universidade Estadual Paulista / Bauru"
+        - year: "2021"
+          event: "Comecei a carreira como Desenvolvedor Full-Stack (Estágio) na Alboom"
+        - year: "2022"
+          event: "Troquei o trabalho para atuar como Desenvolvedor Front-End (Estágio) na Blox"
+        - year: "2023"
+          event: "Fui promovido a Engenheiro de Software na Blox"
+        - year: "2025"
+          event: "Terminei a graduação em Ciência da Computação"
+        - year: "2025"
+          event: "Ingressei na KPMG Brasil como Consultor Sênior"
+        - year: "2025 até o presente"
+          event: "Atuo com TypeScript, Ruby on Rails, Rust e cuido de um bebê(servidor) pessoal"

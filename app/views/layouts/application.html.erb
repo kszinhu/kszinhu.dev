@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title><%= content_for(:title) || "Home // Kszinhu" %></title>
+    <title><%= yield :title || "Cassiano Rodrigues - Software Engineer" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -25,7 +25,8 @@
 
   </head>
 
-  <body>
+  <body id="app" class="font-sans antialiased">
+    <%= render "application/superglue" %>
     <%= yield %>
   </body>
 </html>
