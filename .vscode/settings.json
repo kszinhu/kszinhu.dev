@@ -1,0 +1,63 @@
+{
+  "ruby.lsp.enabled": true,
+  "ruby.lsp.formatter": "rubocop",
+  "ruby.lsp.linters": ["rubocop"],
+  "ruby.format.rubocop.config": ".rubocop.yml",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.rubocop": "explicit",
+    "source.fixAll.biome": "explicit"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.rulers": [120],
+    "editor.wordWrap": "off"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.rulers": [100]
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.rulers": [100]
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.rulers": [100]
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.rulers": [100]
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "*.rb": "ruby",
+    "Gemfile": "ruby",
+    "Rakefile": "ruby",
+    "*.rake": "ruby",
+    ".rubocop.yml": "yaml",
+    ".rubocop_todo.yml": "yaml"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true
+}

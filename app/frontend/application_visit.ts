@@ -1,10 +1,10 @@
-import {
+import type {
   ApplicationRemote,
   ApplicationVisit,
-  SuperglueStore,
   BuildVisitAndRemote,
-} from "@thoughtbot/superglue";
-import { visit, remote } from "@thoughtbot/superglue/action_creators";
+  SuperglueStore,
+} from "@thoughtbot/superglue"
+import { remote, visit } from "@thoughtbot/superglue/action_creators"
 
 /**
  * This function returns a wrapped visit and remote that will be used by UJS,
@@ -14,10 +14,7 @@ import { visit, remote } from "@thoughtbot/superglue/action_creators";
  * You can customize both functions to your liking. For example, for a progress
  * bar. This file also adds support for data-sg-remote.
  */
-export const buildVisitAndRemote: BuildVisitAndRemote = (
-  ref,
-  store: SuperglueStore
-) => {
+export const buildVisitAndRemote: BuildVisitAndRemote = (ref, store: SuperglueStore) => {
   const appRemote: ApplicationRemote = (path, { dataset, ...options }) => {
     /**
      * You can make use of `dataset` to add custom UJS options.
@@ -32,8 +29,8 @@ export const buildVisitAndRemote: BuildVisitAndRemote = (
      *
      * This would be available as `sgHideProgress` on the dataset
      */
-    return store.dispatch(remote(path, options));
-  };
+    return store.dispatch(remote(path, options))
+  }
 
   const appVisit: ApplicationVisit = (path, { dataset, ...options } = {}) => {
     /**
@@ -51,8 +48,8 @@ export const buildVisitAndRemote: BuildVisitAndRemote = (
          * just go to the URL directly to retrieve new assets
          */
         if (meta.needsRefresh) {
-          window.location.href = meta.pageKey;
-          return meta;
+          window.location.href = meta.pageKey
+          return meta
         }
 
         /**
@@ -61,19 +58,17 @@ export const buildVisitAndRemote: BuildVisitAndRemote = (
          * This option overrides the `navigationAction` to allow a link click or
          * a form submission to replace history instead of the usual push.
          */
-        const navigatonAction = !!dataset?.sgReplace
-          ? "replace"
-          : meta.navigationAction;
+        const navigatonAction = dataset?.sgReplace ? "replace" : meta.navigationAction
         ref.current?.navigateTo(meta.pageKey, {
           action: navigatonAction,
-        });
+        })
 
         /**
          * Return the meta object, it's used for scroll restoration when
          * handling the back button. You can skip returning, but Superglue
          * will warn you about scroll restoration.
          */
-        return meta;
+        return meta
       })
       .finally(() => {
         /**
@@ -83,7 +78,7 @@ export const buildVisitAndRemote: BuildVisitAndRemote = (
          */
       })
       .catch((err) => {
-        const response = err.response;
+        const response = err.response
 
         if (!response) {
           /**
@@ -92,8 +87,8 @@ export const buildVisitAndRemote: BuildVisitAndRemote = (
            * Tooling like Sentry can capture console errors. If not, feel
            * free to customize to send the error to your telemetry tool of choice.
            */
-          console.error(err);
-          return;
+          console.error(err)
+          return
         }
 
         if (response.ok) {
@@ -103,20 +98,20 @@ export const buildVisitAndRemote: BuildVisitAndRemote = (
            * If the response is OK, it must be an HTML body, we'll
            * go to that locaton directly.
            */
-          window.location = response.url;
+          window.location = response.url
         } else {
           if (response.status >= 400 && response.status < 500) {
-            window.location.href = "/400.html";
-            return;
+            window.location.href = "/400.html"
+            return
           }
 
           if (response.status >= 500) {
-            window.location.href = "/500.html";
-            return;
+            window.location.href = "/500.html"
+            return
           }
         }
-      });
-  };
+      })
+  }
 
-  return { visit: appVisit, remote: appRemote };
-};
+  return { visit: appVisit, remote: appRemote }
+}

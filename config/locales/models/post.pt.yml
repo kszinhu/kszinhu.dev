@@ -1,0 +1,6 @@
+pt:
+  activerecord:
+    models:
+      post:
+        one: Publicação
+        other: Publicações

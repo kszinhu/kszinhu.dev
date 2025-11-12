@@ -1,7 +1,5 @@
 class RootController < ApplicationController
-  before_action :use_jsx_rendering_defaults
-
   def show
-    render(jsx: "Root/Index", props: { name: params[:name] || "World" })
+    render(jsx: "Root/Index", locals: { page_title: "CR - @kszinhu" })
   end
 end

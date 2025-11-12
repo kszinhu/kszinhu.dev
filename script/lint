@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# frozen_string_literal: true
+
+set -e
+
+echo "🔍 Running RuboCop with Airbnb style guide..."
+echo ""
+
+# Default to auto-correct safe offenses
+AUTO_CORRECT=${1:-"-a"}
+
+case "$AUTO_CORRECT" in
+  --check|-c)
+    echo "📋 Check mode: showing offenses without fixing"
+    bundle exec rubocop --parallel --format progress
+    ;;
+  --fix-all|-A)
+    echo "🔧 Auto-correcting all offenses (including unsafe)"
+    bundle exec rubocop --parallel --format progress -A
+    ;;
+  --fix|-a)
+    echo "🔧 Auto-correcting safe offenses"
+    bundle exec rubocop --parallel --format progress -a
+    ;;
+  --help|-h)
+    echo "Usage: script/lint [option]"
+    echo ""
+    echo "Options:"
+    echo "  -a, --fix       Auto-correct safe offenses (default)"
+    echo "  -A, --fix-all   Auto-correct all offenses (including unsafe)"
+    echo "  -c, --check     Check without fixing"
+    echo "  -h, --help      Show this help message"
+    echo ""
+    echo "Examples:"
+    echo "  script/lint              # Auto-correct safe offenses"
+    echo "  script/lint --check      # Only check, don't fix"
+    echo "  script/lint --fix-all    # Fix everything including unsafe"
+    exit 0
+    ;;
+  *)
+    echo "🔧 Auto-correcting safe offenses"
+    bundle exec rubocop --parallel --format progress -a
+    ;;
+esac
+
+echo ""
+echo "✅ RuboCop analysis complete!"

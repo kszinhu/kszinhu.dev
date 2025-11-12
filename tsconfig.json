@@ -7,7 +7,7 @@
     "strictPropertyInitialization": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": false,
     "target": "ES2021",
     "allowSyntheticDefaultImports": true,

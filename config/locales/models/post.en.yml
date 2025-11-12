@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      post:
+        one: Post
+        other: Posts

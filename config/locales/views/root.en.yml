@@ -1,0 +1,32 @@
+en:
+  views:
+    root:
+      name: "Cassiano Rodrigues"
+      titles:
+        - "Software Engineer"
+        - "Full-Stack Developer"
+        - "Santos FC Fan"
+      short_bio: Computer Science graduate & Coffee lover ❤️
+      description:
+        "Hi Friends! I’m KS, a software engineer based in São Paulo, BR. \
+        I love building things for the web, writing about tech or life experiences, \
+        and learning new skills. Welcome to my personal corner of the internet!"
+      resume_label: "Resume"
+      resume_url: "https://api.kszinhu.dev/files/resume?lang=en"
+      bio:
+        - year: "2002"
+          event: "Born in Igaraçu do Tietê, Brazil"
+        - year: "2020"
+          event: "Started Computer Science at UNESP - State University of São Paulo / Bauru"
+        - year: "2021"
+          event: "Began career as Full-Stack Developer (Internship) at Alboom"
+        - year: "2022"
+          event: "Started working as Front-End Developer (Internship) at Blox"
+        - year: "2023"
+          event: "Promoted to Software Engineer at Blox"
+        - year: "2025"
+          event: "Graduated in Computer Science"
+        - year: "2025"
+          event: "Joined KPMG Brasil as Senior Consultant"
+        - year: "2025 to present"
+          event: "Working with TypeScript, Ruby on Rails, Rust and maintaining a personal baby(server)"

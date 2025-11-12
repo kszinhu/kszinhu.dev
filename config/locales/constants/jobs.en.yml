@@ -1,0 +1,47 @@
+en:
+  jobs:
+    alboom:
+      internship_full_stack_developer:
+        title: "Full-Stack Developer (Internship)"
+        description: |
+          Development and maintenance of products with Ruby on Rails and React:
+          
+          • Created payment flow integrated with Stripe (card and boleto) for Alboom Pay, reaching 1M in transactions
+          • Developed modular components for the website system, metrics dashboards in Admin and components for the Boom UI library
+          • Maintained 100% test coverage (RSpec/Jest) in microservices
+          • Updated Rails and Node.js versions in legacy projects
+    blox:
+      internship_frontend_developer:
+        title: "Front-End Developer (Internship)"
+        description: |
+          Contributing to development during my internship period:
+          
+          • Developed the virtual room concept with automatically scheduled meetings (Google Meet and Zoom) according to course schedule
+          • Implemented activity system that can be carried out in groups or individually, inside and outside the platform
+          • Contributed to the evaluation/activities system with forms featuring multiple choice, essay questions and file uploads
+          • Actively participated in the conversion of the project to TypeScript, achieving 60% of the codebase
+          • Normalized CI/CD pipelines with automated tests across all environments
+          • Fixed performance issues on the enrollment page and curriculum listing
+          • Refactored the course creation form implementing template system with React-Hook-Form and Proxy
+          • Created forms for exporting curricular units and courses with various filters
+      software_engineer:
+        title: "Software Engineer"
+        description: |
+          Developing and maintaining products using Ruby on Rails, Python and React:
+          
+          • Implemented infrastructure for a new product for large-scale data analysis with parallel and distributed processing
+          • Contributed to textual analysis project of legal documents for classification and information extraction
+          • Created scoring system for equivalence between textual elements using NLP and optimization algorithms
+          • Integrated various third-party APIs using webhooks and messaging services
+          • Standardized, documented and optimized project hosting and infrastructure
+          • Orchestra: Developed task orchestration platform with agents based on knowledge repository
+          • Implemented data extraction pipeline for CSV, PDF, MD, XLSX and DOCX
+          • Participated in writing a scientific article in a project funded by FAPESP
+          • Improved performance by removing N+1 queries and implementing cache in frequent accesses
+          • Contributed to achieving 60% test coverage with E2E and unit tests
+          • Implemented real-time interaction platform between users and agents using Turbo Hotwired
+    kpmg:
+      senior_consultant:
+        title: "Senior Consultant"
+        description: >
+          # TODO: Add a description of the work at KPMG in English XD

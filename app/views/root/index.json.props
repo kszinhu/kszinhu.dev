@@ -1,4 +1,83 @@
 json.header do
-  json.title "Welcome to My Site"
-  json.subtitle "Your go-to platform for everything"
+  json.name t(:name, scope: "views.root")
+  json.titles t(:titles, scope: "views.root")
+  json.short_bio t(:short_bio, scope: "views.root")
+  json.description t(:description, scope: "views.root")
+  json.links do
+    json.github "https://github.com/kszinhu"
+    json.linkedin "https://linkedin.com/in/kszinhu"
+    json.resume do
+      json.label t(:resume_label, scope: "views.root")
+      json.url t(:resume_url, scope: "views.root")
+    end
+  end
+end
+
+json.bio t(:bio, scope: "views.root")
+
+json.navigation do
+  json.menu_items [
+    { label: t(:home, scope: "views.navigation"), href: root_url, icon: "IconHome" },
+    { label: t(:projects, scope: "views.navigation"), href: "projects_url", icon: "IconBrandDropbox" },
+    { label: t(:blog, scope: "views.navigation"), href: "blog_url", icon: "IconArticleFilled" }
+  ]
+end
+
+techstack_items = [
+  { title: "Languages", technologies: "Ruby JavaScript TypeScript Python HTML CSS SQL" },
+  { title: "Frameworks", technologies: "React Node.js Ruby on Rails Next.js Express Django" },
+  { title: "Databases", technologies: "PostgreSQL MySQL SQLite MongoDB Redis" }
+]
+
+works_experiences = [
+  {
+    company_name: "Alboom",
+    company_url: "https://www.alboompro.com/",
+    company_image_url: "https://media.licdn.com/dms/image/v2/C4D0BAQGEUmd8FTsq3Q/company-logo_200_200/company-logo_200_200/0/1651224721256?e=1764201600&v=beta&t=wg8uo1ALS_aQVMKpKzRSdTH3pjsEGbt1vIQRJ6fWtWk",
+    roles: [
+      {
+        title: t(:title, scope: "jobs.alboom.internship_full_stack_developer"),
+        period: [ Date.strptime("2021-05", "%Y-%m"), Date.strptime("2022-03", "%Y-%m") ],
+        duration_text: format_duration(Date.strptime("2021-05", "%Y-%m"), Date.strptime("2022-03", "%Y-%m")),
+        description: t(:description, scope: "jobs.alboom.internship_full_stack_developer")
+      }
+    ]
+  },
+  {
+    company_name: "Blox",
+    company_url: "https://blox.education/",
+    company_image_url: "https://media.licdn.com/dms/image/v2/C4D0BAQGtVwrZ0obNPA/company-logo_200_200/company-logo_200_200/0/1631336960280?e=1764806400&v=beta&t=FNNwU7z4ueBdVsTqOQKv9rLehTCLgyQISdk06fyRPy4",
+    roles: [
+      {
+        title: t(:title, scope: "jobs.blox.software_engineer"),
+        period: [ Date.strptime("2024-03", "%Y-%m"), Date.strptime("2025-04", "%Y-%m") ],
+        duration_text: format_duration(Date.strptime("2024-03", "%Y-%m"), Date.strptime("2025-04", "%Y-%m")),
+        description: t(:description, scope: "jobs.blox.software_engineer")
+      },
+      {
+        title: t(:title, scope: "jobs.blox.internship_frontend_developer"),
+        period: [ Date.strptime("2022-10", "%Y-%m"), Date.strptime("2024-03", "%Y-%m") ],
+        duration_text: format_duration(Date.strptime("2022-10", "%Y-%m"), Date.strptime("2024-03", "%Y-%m")),
+        description: t(:description, scope: "jobs.blox.internship_frontend_developer")
+      }
+    ]
+  },
+  {
+    company_name: "KPMG Brasil",
+    company_url: "https://kpmg.com/br/pt/home.html",
+    company_image_url: "https://attachments.gupy.io/production/companies/230/career/163843/images/2023-06-27_20-34_companyLogoUrl.png",
+    roles: [
+      {
+        title: t(:title, scope: "jobs.kpmg.senior_consultant"),
+        period: [ Date.strptime("2025-04", "%Y-%m"), nil ],
+        duration_text: format_duration(Date.strptime("2025-04", "%Y-%m"), nil),
+        description: t(:description, scope: "jobs.kpmg.senior_consultant")
+      }
+    ]
+  }
+]
+
+json.cards do
+  json.techstack techstack_items
+  json.works_experiences works_experiences
 end

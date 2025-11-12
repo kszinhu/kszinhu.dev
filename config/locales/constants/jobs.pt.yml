@@ -1,0 +1,47 @@
+pt:
+  jobs:
+    alboom:
+      internship_full_stack_developer:
+        title: "Desenvolvedor Full-Stack (Estágio)"
+        description: |
+          Desenvolvimento e manutenção de produtos com Ruby on Rails e React:
+          
+          • Criei fluxo de pagamento integrado com Stripe (cartão e boleto) para o Alboom Pay, alcançando 1M em transações
+          • Desenvolvi componentes modulares para o sistema de sites, painéis de métricas no Admin e componentes para a biblioteca Boom UI
+          • Mantive 100% de cobertura de testes (RSpec/Jest) em microsserviços
+          • Atualizei versões do Rails e Node.js em projetos legados
+    blox:
+      internship_frontend_developer:
+        title: "Desenvolvedor Front-End (Estágio)"
+        description: |
+          Contribuindo no desenvolvimento durante meu período de estágio:
+          
+          • Desenvolvi o conceito de sala virtual com reuniões agendadas automaticamente (Google Meet e Zoom) conforme cronograma da disciplina
+          • Implementei sistema de atividades que podem ser realizadas em grupo ou individualmente, dentro e fora da plataforma
+          • Contribuí para o sistema de avaliação/atividades com formulários de múltipla escolha, dissertativas e envio de arquivos
+          • Participei ativamente da conversão do projeto para TypeScript, atingindo 60% do código
+          • Normalizei os pipelines de CI/CD com testes automatizados em todos os ambientes
+          • Resolvi problemas de performance na página de matrícula e listagem de currículos
+          • Refatorei o formulário de criação de disciplinas implementando sistema de templates com React-Hook-Form e Proxy
+          • Criei formulários para exportação de unidades curriculares e disciplinas com diversos filtros
+      software_engineer:
+        title: "Engenheiro de Software"
+        description: |
+          Desenvolvendo e mantendo produtos utilizando Ruby on Rails, Python e React:
+          
+          • Implementei a infraestrutura de um novo produto para análise de dados em grande escala com processamento paralelo e distribuído
+          • Contribuí para projeto de análise textual de documentos jurídicos para classificação e extração de informações
+          • Criei sistema de pontuação para equivalência entre elementos textuais usando NLP e algoritmos de otimização
+          • Integrei diversas APIs de terceiros utilizando webhooks e serviços de mensageria
+          • Padronizei, documentei e otimizei hospedagens e infraestrutura dos projetos
+          • Orchestra: Desenvolvi plataforma de orquestração de tarefas com agentes baseados em repositório de conhecimento
+          • Implementei pipeline de extração de dados para CSV, PDF, MD, XLSX e DOCX
+          • Participei na escrita de artigo científico em projeto financiado pela FAPESP
+          • Melhorei performance removendo queries N+1 e implementando cache em acessos frequentes
+          • Contribuí para obtenção de 60% de cobertura de testes com testes E2E e unitários
+          • Implementei plataforma de interação em tempo real entre usuários e agentes usando Turbo Hotwired
+    kpmg:
+      senior_consultant:
+        title: "Consultor Sênior"
+        description: >
+          # TODO: Adicionar uma descrição do trabalho na KPMG em português XD

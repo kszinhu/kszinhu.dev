@@ -1,6 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import "../stylesheets/application.tailwind.css";
 
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-primary: var(--color-red-500);
+  --color-accent: var(--color-zinc-500);
+}
+
+* {
+  --mantine-color-body: #1a1b1e;
+}
+
+body {
+  font-family:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
