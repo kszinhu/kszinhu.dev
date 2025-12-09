@@ -1,0 +1,68 @@
+services:
+  web:
+    image: ghcr.io/kszinhu/new.kszinhu.dev:latest
+    container_name: kszinhu-web
+    restart: unless-stopped
+
+    environment:
+      - RAILS_ENV=production
+      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+      - RAILS_LOG_TO_STDOUT=true
+      - SOLID_QUEUE_IN_PUMA=true
+
+    volumes:
+      - app_storage:/rails/storage
+      - app_logs:/rails/log
+
+    networks:
+      - traefik
+      - app_network
+
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.kszinhu-web-http.rule=Host(`kszinhu.dev`) || Host(`www.kszinhu.dev`)"
+      - "traefik.http.routers.kszinhu-web-http.entrypoints=web"
+      - "traefik.http.routers.kszinhu-web-http.middlewares=redirect-to-https"
+
+      - "traefik.http.routers.kszinhu-web-https.rule=Host(`kszinhu.dev`) || Host(`www.kszinhu.dev`)"
+      - "traefik.http.routers.kszinhu-web-https.entrypoints=websecure"
+      - "traefik.http.routers.kszinhu-web-https.tls=true"
+      - "traefik.http.routers.kszinhu-web-https.tls.certresolver=leresolver"
+
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+
+      - "traefik.http.services.kszinhu-web.loadbalancer.server.port=80"
+
+      - "traefik.http.services.kszinhu-web.loadbalancer.healthcheck.path=/up"
+      - "traefik.http.services.kszinhu-web.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.services.kszinhu-web.loadbalancer.healthcheck.timeout=10s"
+
+      # Security
+      - "traefik.http.middlewares.security-headers.headers.framedeny=true"
+      - "traefik.http.middlewares.security-headers.headers.sslredirect=true"
+      - "traefik.http.middlewares.security-headers.headers.stsincludesubdomains=true"
+      - "traefik.http.middlewares.security-headers.headers.stspreload=true"
+      - "traefik.http.middlewares.security-headers.headers.stsseconds=31536000"
+      - "traefik.http.middlewares.security-headers.headers.contenttypenosniff=true"
+      - "traefik.http.middlewares.security-headers.headers.browserxssfilter=true"
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/up"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  traefik:
+    external: true
+    name: traefik
+
+  app_network:
+    driver: bridge
+
+volumes:
+  app_storage:
+  app_logs:

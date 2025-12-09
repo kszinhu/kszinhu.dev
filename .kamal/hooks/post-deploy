@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Connect the deployed container to Traefik network
+CONTAINER_NAME="new_kszinhu_dev-web-$(docker ps -q -f name=new_kszinhu_dev-web | head -n 1)"
+
+if [ -n "$CONTAINER_NAME" ]; then
+  docker network connect traefik $CONTAINER_NAME 2>/dev/null || true
+fi
+
+exit 0

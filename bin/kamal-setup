@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "🚀 Kamal Setup Script"
+echo "===================="
+echo ""
+
+# Check if .env.kamal exists
+if [ ! -f .env.kamal ]; then
+  echo "📝 Creating .env.kamal from example..."
+  cp .env.kamal.example .env.kamal
+  echo ""
+  echo "⚠️  Please edit .env.kamal with your actual values:"
+  echo "   - GHCR_TOKEN: GitHub Container Registry token"
+  echo "   - SERVER_IP: Your server IP address"
+  echo "   - SSH_USER: SSH user for your server"
+  echo ""
+  read -p "Press enter after editing .env.kamal..."
+fi
+
+# Load environment variables
+set -a
+source .env.kamal
+set +a
+
+# Export secrets for Kamal
+export KAMAL_REGISTRY_PASSWORD="$GHCR_TOKEN"
+export RAILS_MASTER_KEY="$(cat config/master.key)"
+
+# Update deploy.yml with actual values
+echo "📄 Updating config/deploy.yml..."
+sed -i.bak "s/YOUR_SERVER_IP/$SERVER_IP/g" config/deploy.yml
+sed -i.bak "s/YOUR_SSH_USER/$SSH_USER/g" config/deploy.yml
+rm -f config/deploy.yml.bak
+
+echo "✅ Configuration updated!"
+echo ""
+
+# Check SSH connection
+echo "🔐 Testing SSH connection..."
+if ssh -q $SSH_USER@$SERVER_IP exit; then
+  echo "✅ SSH connection successful!"
+else
+  echo "❌ SSH connection failed. Please check your SSH keys and server access."
+  exit 1
+fi
+
+echo ""
+echo "🐳 Checking Docker on remote server..."
+ssh $SSH_USER@$SERVER_IP "docker --version" || {
+  echo "❌ Docker not found on server. Please install Docker first."
+  exit 1
+}
+
+echo ""
+echo "🌐 Checking Traefik network..."
+ssh $SSH_USER@$SERVER_IP "docker network inspect traefik >/dev/null 2>&1" || {
+  echo "⚠️  Traefik network not found. Creating it..."
+  ssh $SSH_USER@$SERVER_IP "docker network create traefik"
+  echo "✅ Traefik network created!"
+}
+
+echo ""
+echo "📦 Setting up Kamal on remote server..."
+KAMAL_REGISTRY_PASSWORD="$GHCR_TOKEN" RAILS_MASTER_KEY="$(cat config/master.key)" bundle exec kamal setup
+
+echo ""
+echo "✅ Setup complete!"
+echo ""
+echo "Next steps:"
+echo "  1. Deploy: bundle exec kamal deploy"
+echo "  2. Check logs: bundle exec kamal logs"
+echo "  3. Console: bundle exec kamal console"
