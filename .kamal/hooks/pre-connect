@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Ensure the container is connected to Traefik network
+docker network inspect traefik >/dev/null 2>&1 || docker network create traefik
+
+exit 0

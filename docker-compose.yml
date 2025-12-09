@@ -1,0 +1,37 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 3.4.5
+        RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+    container_name: kszinhu-dev
+    restart: unless-stopped
+
+    ports:
+      - "${PORT:-3000}:80"
+
+    environment:
+      - RAILS_ENV=production
+      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+      - RAILS_LOG_TO_STDOUT=true
+      - SOLID_QUEUE_IN_PUMA=true
+
+    volumes:
+      - app_storage:/rails/storage
+      - app_logs:/rails/log
+
+    stdin_open: true
+    tty: true
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/up"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  app_storage:
+  app_logs:

@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "⏪ Safe Rollback Script"
+echo "======================"
+echo ""
+
+# Get current version
+CURRENT_VERSION=$(bundle exec kamal app version 2>/dev/null || echo "unknown")
+echo "Current version: $CURRENT_VERSION"
+echo ""
+
+# Show recent deployments
+echo "Recent deployments:"
+bundle exec kamal app images | head -n 5
+echo ""
+
+# Confirmation
+read -p "Are you sure you want to rollback? This will revert to the previous version. (yes/no): " CONFIRM
+
+if [ "$CONFIRM" != "yes" ]; then
+  echo "Rollback cancelled."
+  exit 0
+fi
+
+echo ""
+echo "🔄 Starting rollback..."
+echo ""
+
+# Execute rollback
+bundle exec kamal rollback
+
+echo ""
+echo "✅ Rollback completed!"
+echo ""
+
+# Show new version
+NEW_VERSION=$(bundle exec kamal app version 2>/dev/null || echo "unknown")
+echo "New version: $NEW_VERSION"
+echo ""
+
+# Health check
+echo "Running health check..."
+if bundle exec kamal app exec "curl -f http://localhost:80/up" >/dev/null 2>&1; then
+  echo "✅ Health check passed!"
+else
+  echo "⚠️  Health check failed. Check logs with: make logs"
+fi
+
+echo ""
+echo "Rollback completed successfully!"
+echo ""
+echo "Next steps:"
+echo "  - Check logs: make logs"
+echo "  - Check status: make status"
+echo "  - If issues persist, check: make health"
