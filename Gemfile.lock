@@ -80,6 +80,7 @@ GEM
       rake (>= 0.8.7)
     ast (2.4.3)
     base64 (0.3.0)
+    bcrypt (3.1.21)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.1)
     bigdecimal (3.2.2)
@@ -108,6 +109,12 @@ GEM
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (5.0.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 7.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.6.2)
     dotenv (3.1.8)
     drb (2.2.3)
@@ -117,6 +124,11 @@ GEM
     erubi (1.13.1)
     et-orbi (1.3.0)
       tzinfo
+    factory_bot (6.5.6)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.5.1)
+      factory_bot (~> 6.5)
+      railties (>= 6.1.0)
     form_props (0.2.1)
       actionview (>= 7.0, < 9.0)
       activesupport (>= 7.0, < 9.0)
@@ -195,6 +207,7 @@ GEM
     oj (3.16.11)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
+    orm_adapter (0.5.0)
     ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.10.0)
@@ -268,6 +281,9 @@ GEM
     regexp_parser (2.11.1)
     reline (0.6.2)
       io-console (~> 0.5)
+    responders (3.2.0)
+      actionpack (>= 7.0)
+      railties (>= 7.0)
     rexml (3.4.1)
     rspec-core (3.13.6)
       rspec-support (~> 3.13.0)
@@ -339,6 +355,8 @@ GEM
     serverengine (2.0.7)
       sigdump (~> 0.2.2)
     set (1.1.2)
+    shoulda-matchers (7.0.1)
+      activesupport (>= 7.1)
     sigdump (0.2.5)
     sneakers (2.11.0)
       bunny (~> 2.12)
@@ -404,6 +422,8 @@ GEM
       mutex_m
       rack-proxy (~> 0.6, >= 0.6.1)
       zeitwerk (~> 2.2)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -434,6 +454,8 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  devise (~> 5.0)
+  factory_bot_rails
   jbuilder
   kamal
   propshaft
@@ -442,6 +464,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-airbnb
   selenium-webdriver
+  shoulda-matchers
   sneakers
   solid_cable
   solid_cache
