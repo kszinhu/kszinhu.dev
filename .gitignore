@@ -28,6 +28,11 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+# Ignore SQLite databases and their WAL/SHM files (schema stays tracked).
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
