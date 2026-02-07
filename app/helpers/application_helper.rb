@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def calculate_duration(start_date, end_date = nil)
     end_date ||= Date.today
@@ -9,7 +11,7 @@ module ApplicationHelper
     {
       years: years,
       months: months,
-      total_months: total_months
+      total_months: total_months,
     }
   end
 

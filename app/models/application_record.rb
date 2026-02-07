@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationRecord < ActiveRecord::Base
   # This enables digging by index when used with props_template
   # see https://thoughtbot.github.io/superglue/digging/#index-based-selection
