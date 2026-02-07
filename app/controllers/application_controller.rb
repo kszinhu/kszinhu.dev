@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   # Enables Superglue rendering defaults for sensible view directories.
   before_action :use_jsx_rendering_defaults
