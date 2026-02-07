@@ -1,0 +1,5 @@
+example_id                   | status | run_time        |
+---------------------------- | ------ | --------------- |
+./spec/sneakers_spec.rb[1:1] | passed | 0.00934 seconds |
+./spec/sneakers_spec.rb[1:2] | passed | 0.00039 seconds |
+./spec/sneakers_spec.rb[2:1] | passed | 0.00281 seconds |

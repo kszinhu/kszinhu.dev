@@ -4,11 +4,15 @@ Este documento descreve como trabalhar no repositório, com foco em testes e na 
 
 ## Como executar os testes
 
-### Testes Rails (Minitest)
+Como agente você precisa utilizar TDD (Test-Driven Development) para garantir que suas mudanças não quebrem funcionalidades existentes e que o comportamento esperado seja mantido. Para isso, é fundamental saber como rodar os testes tanto do backend quanto do frontend.
+
+Execute, valide e mantenha os testes atualizados sempre que fizer mudanças no código. Isso ajuda a garantir a qualidade e a estabilidade do projeto.
+
+### Testes Rails (Rspec)
 - Executar toda a suíte:
-  - `bundle exec rails test`
+  - `bundle exec rspec`
 - Executar um arquivo específico:
-  - `bundle exec rails test test/models/algum_modelo_test.rb`
+  - `bundle exec rspec path/to/test_file.rb`
 
 ### Testes Frontend (Vitest)
 - Executar em modo interativo:
@@ -48,17 +52,15 @@ Arquivos frequentemente relevantes:
 - `config/vite.json` — integração Vite
 - `config/database.yml` — banco de dados
 
-### `test/`
-Testes Minitest da aplicação Rails.
+### `rspec/`
+Testes Rspec para o backend.
 Estrutura comum:
-- `test/models/`
-- `test/controllers/`
-- `test/integration/`
-- `test/system/`
-- `test/fixtures/`
-- `test/test_helper.rb` — configuração base da suíte
+- `spec/models/`
+- `spec/controllers/`
+- `spec/fixtures/`
+- `spec/test_helper.rb` — configuração base da suíte
 
 ## Boas práticas rápidas
-- Prefira alterar `app/**` e `test/**` em conjunto quando mudar comportamento.
+- Prefira alterar `app/**` e `spec/**` em conjunto quando mudar comportamento.
 - Para mudanças de API de props em `*.json.props`, atualize o frontend em `app/frontend/`.
 - Se ajustar rotas ou configs, valide com testes e/ou `bin/dev`.
