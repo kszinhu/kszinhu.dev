@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def calculate_duration(start_date, end_date = nil)
+  def calculate_duration(start_date, end_date: nil)
     end_date ||= Date.today
 
     total_months = (end_date.year - start_date.year) * 12 + (end_date.month - start_date.month)
@@ -15,7 +15,7 @@ module ApplicationHelper
     }
   end
 
-  def format_duration(start_date, end_date = nil)
+  def format_duration(start_date, end_date: nil)
     duration = calculate_duration(start_date, end_date)
     years = duration[:years]
     months = duration[:months]

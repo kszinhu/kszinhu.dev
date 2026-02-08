@@ -20,7 +20,6 @@ export function Presentation({ name, subtitle, titles }: PresentationProps) {
       <div
         className="text-lg font-medium text-muted-foreground flex justify-center items-center"
         aria-live="polite"
-        aria-label={`Current role cycling through different titles, such as ${titles.join(", ")}.`}
       >
         <CycleTitle titles={titles}>
           <Spinner />

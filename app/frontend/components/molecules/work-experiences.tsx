@@ -27,7 +27,12 @@ export function WorkExperiences({ experiences }: WorkExperiencesProps) {
   })
 
   return (
-    <Timeline active={sortedExperiences.length} bulletSize={56} lineWidth={2} className="col-span-2">
+    <Timeline
+      active={sortedExperiences.length}
+      bulletSize={56}
+      lineWidth={2}
+      className="col-span-2"
+    >
       {sortedExperiences.map(({ company_name, company_image_url, company_url, roles }, index) => (
         <Timeline.Item
           key={index}
