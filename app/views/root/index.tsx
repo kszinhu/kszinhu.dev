@@ -97,13 +97,10 @@ export default function RootIndex() {
           <div className="md:hidden mt-8">
             <Bio entries={bio} />
           </div>
-          <div
-            role="list"
-            className="hidden md:grid grid-cols-3 grid-rows-2 gap-6 transform transition-all duration-700 ease-out translate-y-0 opacity-100"
-          >
+          <ul className="hidden md:grid grid-cols-3 grid-rows-2 gap-6 transform transition-all duration-700 ease-out translate-y-0 opacity-100">
             {/* Future content cards can be placed here */}
             <WorkExperiences experiences={worksExperiences} />
-          </div>
+          </ul>
         </div>
       </div>
     </div>
