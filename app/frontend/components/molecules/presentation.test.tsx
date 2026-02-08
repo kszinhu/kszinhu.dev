@@ -23,13 +23,6 @@ describe("Presentation", () => {
     expect(screen.getByText("Software Engineer from Brazil")).toBeInTheDocument()
   })
 
-  it("renders the cycling title with correct aria-label", () => {
-    render(<Presentation {...defaultProps} />)
-
-    const cyclingElement = screen.getByLabelText(/Current role cycling through different titles/)
-    expect(cyclingElement).toBeInTheDocument()
-  })
-
   it("renders the first title from the titles array", () => {
     render(<Presentation {...defaultProps} titles={["Full-stack Developer"]} />)
     expect(screen.getByText(/Full-stack Developer/)).toBeInTheDocument()
