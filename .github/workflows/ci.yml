@@ -90,7 +90,13 @@ jobs:
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-        run: bundle exec rails db:test:prepare && bundle exec rspec
+        run: |
+          if [ -f db/schema.rb ]; then
+            bundle exec rails db:test:prepare
+          else
+            echo "db/schema.rb not found, skipping db:test:prepare"
+          fi
+          bundle exec rspec
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
