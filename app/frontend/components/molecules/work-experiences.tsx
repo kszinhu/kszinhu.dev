@@ -138,6 +138,7 @@ function ExperiencePeriod({ period, durationText }: { period: PeriodDate; durati
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",
+    timeZone: "UTC",
   }
 
   const presentText = locale.startsWith("pt") ? "Presente" : "Present"
