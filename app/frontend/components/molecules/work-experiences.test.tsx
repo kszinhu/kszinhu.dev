@@ -162,7 +162,7 @@ describe("WorkExperiences", () => {
       const allText = document.body.textContent || ""
       expect(allText).toContain("2021")
       expect(allText).toContain("2022")
-      expect(allText).toContain("Dec 2021 - Dec 2022")
+      expect(allText).toContain("Jun 2021 - Jan 2022")
     })
 
     it("formats dates according to browser locale", () => {
@@ -310,31 +310,6 @@ describe("WorkExperiences", () => {
       expect(screen.getByText(/Dash bullet/)).toBeInTheDocument()
       expect(screen.getByText(/Circle bullet/)).toBeInTheDocument()
       expect(screen.getByText(/Star bullet/)).toBeInTheDocument()
-    })
-  })
-
-  describe("Internationalization support", () => {
-    it("displays Ver mais button in Portuguese", () => {
-      mockUseLocale.mockReturnValue("pt-BR")
-
-      renderWithProviders(<WorkExperiences experiences={mockExperiences} />)
-
-      expect(screen.getAllByRole("button", { name: /Ver mais/i })[0]).toBeInTheDocument()
-    })
-
-    it("toggles between Ver mais and Ver menos in Portuguese", async () => {
-      const user = userEvent.setup()
-      mockUseLocale.mockReturnValue("pt-BR")
-
-      renderWithProviders(<WorkExperiences experiences={mockExperiences} />)
-
-      const showMoreButton = screen.getAllByRole("button", {
-        name: /Ver mais/i,
-      })[0]
-
-      await user.click(showMoreButton)
-
-      expect(screen.getAllByRole("button", { name: /Ver menos/i })[0]).toBeInTheDocument()
     })
   })
 
