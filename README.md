@@ -83,6 +83,24 @@ Make sure you have these installed (or prepare for a world of pain):
 
 *If everything worked, congratulations! If not, welcome to debugging - coffee is in the kitchen.*
 
+## 🪝 Git Hooks (Husky + lint-staged)
+
+This project uses Husky to run Git hooks and lint-staged to check only staged files.
+
+### What runs on commit?
+- **pre-commit**: runs `lint-staged`, which executes:
+  - `biome check --write` for staged JS/TS/JSON/CSS/MD
+  - `bundle exec rubocop -A --force-exclusion` for staged Ruby files
+- **commit-msg**: validates Conventional Commits via commitlint.
+
+### Setup
+Hooks are installed automatically on dependency install via:
+- `npm install` / `yarn install` → runs the `prepare` script (`husky install`)
+
+### Expected behavior
+- If linting or formatting fails, the commit is aborted.
+- Only staged files are checked for performance.
+
 ## ✨ Features (What This Beast Can Do)
 
 - 📱 **Responsive Design**: Looks good on everything from a smartwatch to a cinema display
