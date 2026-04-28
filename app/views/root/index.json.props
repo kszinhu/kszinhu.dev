@@ -81,3 +81,59 @@ json.cards do
   json.techstack techstack_items
   json.works_experiences works_experiences
 end
+
+json.footer do
+  json.nav_links [
+    { label: t(:home, scope: "views.footer.navigation"), href: root_url },
+    { label: t(:about, scope: "views.footer.navigation"), href: "/about" },
+    { label: t(:blog, scope: "views.footer.navigation"), href: "/blog" },
+  ]
+
+  json.social_links [
+    {
+      name: "twitter",
+      label: t(:twitter, scope: "views.footer.socials"),
+      href: "https://twitter.com/kch0w1",
+      icon: "IconBrandTwitter"
+    },
+    {
+      name: "github",
+      label: t(:github, scope: "views.footer.socials"),
+      href: "https://github.com/kszinhu",
+      icon: "IconBrandGithub"
+    },
+    {
+      name: "email",
+      label: t(:email, scope: "views.footer.socials"),
+      href: "mailto:kszinhu@kszinhu.dev.br",
+      icon: "IconMail"
+    },
+    {
+      name: "instagram",
+      label: t(:instagram, scope: "views.footer.socials"),
+      href: "https://instagram.com/kszinhu",
+      icon: "IconBrandInstagram"
+    },
+    {
+      name: "linkedin",
+      label: t(:linkedin, scope: "views.footer.socials"),
+      href: "https://www.linkedin.com/in/kszinhu",
+      icon: "IconBrandLinkedin"
+    },
+    {
+      name: "stackoverflow",
+      label: t(:stackoverflow, scope: "views.footer.socials"),
+      href: "https://stackoverflow.com/users/18299477",
+      icon: "IconBrandStackoverflow"
+    },
+    {
+      name: "discord",
+      label: t(:discord, scope: "views.footer.socials"),
+      href: "https://discord.com/users/kszinhu",
+      icon: "IconBrandDiscord"
+    }
+  ]
+
+  json.owner_name t(:owner_name, scope: "views.footer")
+  json.copy_right t(:copyright, scope: "views.footer", year: Time.current.year)
+end

@@ -1,4 +1,4 @@
-import { Header, Presentation } from "@javascript/components"
+import { Header, Presentation, Footer } from "@javascript/components"
 import { Bio } from "@javascript/components/molecules/bio"
 import { WorkExperiences } from "@javascript/components/molecules/work-experiences"
 import { Button } from "@mantine/core"
@@ -103,6 +103,7 @@ export default function RootIndex() {
           </ul>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

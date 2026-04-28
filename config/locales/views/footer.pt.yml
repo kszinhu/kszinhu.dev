@@ -1,0 +1,19 @@
+pt:
+  views:
+    footer:
+      navigation:
+        home: "Início"
+        about: "Sobre"
+        uses: "Ferramentas"
+        blog: "Blog"
+        open_source: "Código Aberto"
+      socials:
+        twitter: "Twitter"
+        github: "GitHub"
+        email: "E-mail"
+        instagram: "Instagram"
+        linkedin: "LinkedIn"
+        stackoverflow: "Stack Overflow"
+        discord: "Discord"
+      owner_name: "Cassiano Rodrigues"
+      copyright: "© %{year} Cassiano Rodrigues"
