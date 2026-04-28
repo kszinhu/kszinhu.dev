@@ -10,6 +10,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@javascript": path.resolve(__dirname, "./app/frontend"),
+      "@views": path.resolve(__dirname, "./app/views"),
+      "@javascript/test_helpers": path.resolve(__dirname, "./app/frontend/test_helpers"),
     },
   },
 })

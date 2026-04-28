@@ -3,9 +3,7 @@ import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { Bio } from "./bio"
 
-function renderWithProviders(ui: React.ReactElement) {
-  return render(<MantineProvider>{ui}</MantineProvider>)
-}
+import { renderWithProviders } from "@javascript/test_helpers/test-utils"
 
 describe("Bio", () => {
   const mockBioEntries = [

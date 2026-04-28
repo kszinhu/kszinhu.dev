@@ -5,13 +5,11 @@ import { beforeEach, describe, expect, it, vi } from "vitest"
 import { WorkExperiences } from "./work-experiences"
 
 const mockUseLocale = vi.fn(() => "en-US")
-vi.mock("../../hooks/use-locale", () => ({
+vi.mock("@javascript/hooks/use-locale", () => ({
   useLocale: () => mockUseLocale(),
 }))
 
-const renderWithProviders = (ui: React.ReactElement) => {
-  return render(<MantineProvider>{ui}</MantineProvider>)
-}
+import { renderWithProviders } from "@javascript/test_helpers/test-utils"
 
 describe("WorkExperiences", () => {
   const mockExperiences = [
